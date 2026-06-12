@@ -35,6 +35,7 @@ const partners: Partner[] = [
   { name: "Resolution Project", file: "resolution-project.png", description: "Partnered on social venture support for young leaders across the region." },
   { name: "Global Youth Mobilization", file: "global-youth-mobilization.png", description: "Funded educational hubs launched during the COVID-19 pandemic covering 12 communities and over 10,000+ learners and teachers." },
   { name: "World YMCA", file: "world-ymca.png", description: "Funded educational hubs launched during the COVID-19 pandemic covering 12 communities and over 10,000+ learners and teachers." },
+  { name: "Khan Academy", file: "khan-academy.png", description: "Co-presenter for Enactus Philippines" },
 ];
 
 export default function Partners() {

@@ -33,6 +33,7 @@ const partnerLogos: Record<string, string> = {
   "Resolution Project": "resolution-project.png",
   "Global Youth Mobilization": "global-youth-mobilization.png",
   "World YMCA": "world-ymca.png",
+  "Khan Academy": "khan-academy.png",
 };
 
 export default function Home() {
