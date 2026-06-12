@@ -31,7 +31,7 @@ const projects = [
     logoSrc: "/ai-for-asia-logo.png",
     logoAlt: "AI for Asia logo",
     metrics: [
-      { value: "10", label: "Weeks intensive" },
+      { value: "12", label: "Weeks intensive" },
       { value: "8", label: "ASEAN nations" },
       { value: "57", label: "Fellows across Asia" },
       { value: "6", label: "High-level sessions" },
@@ -89,15 +89,29 @@ export default function Projects() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-6 pt-24 pb-8">
-        <motion.div initial="initial" animate="animate" variants={{ animate: { transition: { staggerChildren: 0.12 } } }}>
-          <motion.p variants={fadeUp} className="text-sm uppercase tracking-[0.3em] text-primary/80 mb-6">
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
+        >
+          <motion.p
+            variants={fadeUp}
+            className="text-sm uppercase tracking-[0.3em] text-primary/80 mb-6"
+          >
             Current Initiatives
           </motion.p>
-          <motion.h1 variants={fadeUp} className="font-display text-5xl md:text-7xl tracking-tight leading-[1.08]">
+          <motion.h1
+            variants={fadeUp}
+            className="font-display text-5xl md:text-7xl tracking-tight leading-[1.08]"
+          >
             Live. <span className="text-primary">Active.</span> Growing.
           </motion.h1>
-          <motion.p variants={fadeUp} className="mt-6 text-muted-foreground text-lg max-w-2xl leading-relaxed">
-            Two flagship initiatives driving youth leadership, innovation, and entrepreneurial action across Asia.
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-muted-foreground text-lg max-w-2xl leading-relaxed"
+          >
+            Two flagship initiatives driving youth leadership, innovation, and
+            entrepreneurial action across Asia.
           </motion.p>
         </motion.div>
       </section>
@@ -111,18 +125,77 @@ export default function Projects() {
           whileInView="animate"
           viewport={{ once: true, margin: "-80px" }}
           variants={{ animate: { transition: { staggerChildren: 0.15 } } }}
-          className={`relative overflow-hidden border-t ${project.theme.section} ${i > 0 ? '' : 'border-t-0'}`}
+          className={`relative overflow-hidden border-t ${project.theme.section} ${i > 0 ? "" : "border-t-0"}`}
         >
           {project.id === "ai-for-asia" && (
-            <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 rounded-full" style={{ background: "radial-gradient(circle, #336fcf 0%, transparent 70%)", filter: "blur(120px)", opacity: 0.25 }} />
-              <div className="absolute top-1/3 right-0 w-1/3 h-1/2 rounded-full" style={{ background: "radial-gradient(circle, #8561c5 0%, transparent 70%)", filter: "blur(100px)", opacity: 0.2 }} />
-              <div className="absolute -bottom-1/4 left-1/3 w-1/2 h-1/2 rounded-full" style={{ background: "radial-gradient(circle, #e39297 0%, transparent 70%)", filter: "blur(120px)", opacity: 0.15 }} />
+            <div
+              aria-hidden
+              className="absolute inset-0 overflow-hidden pointer-events-none"
+            >
+              <div
+                className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle, #336fcf 0%, transparent 70%)",
+                  filter: "blur(120px)",
+                  opacity: 0.25,
+                }}
+              />
+              <div
+                className="absolute top-1/3 right-0 w-1/3 h-1/2 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle, #8561c5 0%, transparent 70%)",
+                  filter: "blur(100px)",
+                  opacity: 0.2,
+                }}
+              />
+              <div
+                className="absolute -bottom-1/4 left-1/3 w-1/2 h-1/2 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle, #e39297 0%, transparent 70%)",
+                  filter: "blur(120px)",
+                  opacity: 0.15,
+                }}
+              />
 
-              <div className="absolute top-0 -right-32 w-96 h-[2px] rotate-12" style={{ background: "linear-gradient(90deg, transparent, #336fcf, #8561c5, #e39297, transparent)", filter: "blur(40px)", opacity: 0.3 }} />
-              <div className="absolute top-1/3 -left-40 w-[500px] h-[1px] -rotate-6" style={{ background: "linear-gradient(90deg, transparent, #8561c5, #e39297, transparent)", filter: "blur(50px)", opacity: 0.25 }} />
-              <div className="absolute bottom-1/4 -right-48 w-[400px] h-[3px] rotate-45" style={{ background: "linear-gradient(90deg, transparent, #0060ba, #8561c5, transparent)", filter: "blur(60px)", opacity: 0.2 }} />
-              <div className="absolute -bottom-20 left-1/4 w-80 h-[2px] -rotate-12" style={{ background: "linear-gradient(90deg, transparent, #336fcf, #c671af, transparent)", filter: "blur(45px)", opacity: 0.25 }} />
+              <div
+                className="absolute top-0 -right-32 w-96 h-[2px] rotate-12"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, #336fcf, #8561c5, #e39297, transparent)",
+                  filter: "blur(40px)",
+                  opacity: 0.3,
+                }}
+              />
+              <div
+                className="absolute top-1/3 -left-40 w-[500px] h-[1px] -rotate-6"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, #8561c5, #e39297, transparent)",
+                  filter: "blur(50px)",
+                  opacity: 0.25,
+                }}
+              />
+              <div
+                className="absolute bottom-1/4 -right-48 w-[400px] h-[3px] rotate-45"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, #0060ba, #8561c5, transparent)",
+                  filter: "blur(60px)",
+                  opacity: 0.2,
+                }}
+              />
+              <div
+                className="absolute -bottom-20 left-1/4 w-80 h-[2px] -rotate-12"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, #336fcf, #c671af, transparent)",
+                  filter: "blur(45px)",
+                  opacity: 0.25,
+                }}
+              />
             </div>
           )}
           <div
@@ -136,9 +209,11 @@ export default function Projects() {
             <div className="grid md:grid-cols-12 gap-10 md:gap-16">
               <motion.div
                 variants={fadeUp}
-                className={`md:col-span-7 space-y-6 ${i % 2 === 1 ? 'md:order-2' : ''}`}
+                className={`md:col-span-7 space-y-6 ${i % 2 === 1 ? "md:order-2" : ""}`}
               >
-                <div className={`pl-5 border-l-2 ${project.theme.borderAccent}`}>
+                <div
+                  className={`pl-5 border-l-2 ${project.theme.borderAccent}`}
+                >
                   <Image
                     src={project.logoSrc}
                     alt={project.logoAlt}
@@ -147,13 +222,26 @@ export default function Projects() {
                     className="h-10 md:h-14 w-auto object-contain mb-5"
                   />
                   <div className="mb-4">
-                    <p className={`text-xs uppercase tracking-[0.25em] ${project.theme.label}`}>Flagship Initiative</p>
-                    <h2 className={`font-display text-3xl md:text-4xl ${project.theme.name}`}>{project.name}</h2>
+                    <p
+                      className={`text-xs uppercase tracking-[0.25em] ${project.theme.label}`}
+                    >
+                      Flagship Initiative
+                    </p>
+                    <h2
+                      className={`font-display text-3xl md:text-4xl ${project.theme.name}`}
+                    >
+                      {project.name}
+                    </h2>
                   </div>
-                  <p className={`text-lg font-medium italic leading-snug font-display mb-4 ${project.theme.tagline}`}>
+                  <p
+                    className={`text-lg font-medium italic leading-snug font-display mb-4 ${project.theme.tagline}`}
+                  >
                     &ldquo;{project.tagline}&rdquo;
                   </p>
-                  <p className={`leading-relaxed ${project.theme.desc}`} dangerouslySetInnerHTML={{ __html: project.description }} />
+                  <p
+                    className={`leading-relaxed ${project.theme.desc}`}
+                    dangerouslySetInnerHTML={{ __html: project.description }}
+                  />
                 </div>
                 <div className="pt-2 pl-5">
                   <Link
@@ -161,7 +249,11 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`group inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${project.theme.btn}`}
-                    style={project.theme.brand ? { backgroundColor: project.theme.brand } : undefined}
+                    style={
+                      project.theme.brand
+                        ? { backgroundColor: project.theme.brand }
+                        : undefined
+                    }
                   >
                     Visit website
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -171,7 +263,7 @@ export default function Projects() {
 
               <motion.div
                 variants={scaleIn}
-                className={`md:col-span-5 ${i % 2 === 1 ? 'md:order-1' : ''}`}
+                className={`md:col-span-5 ${i % 2 === 1 ? "md:order-1" : ""}`}
               >
                 <div className="grid grid-cols-2 gap-4">
                   {project.metrics.map((m, idx) => (
@@ -179,15 +271,21 @@ export default function Projects() {
                       key={idx}
                       className={`rounded-2xl p-5 md:p-6 bg-gradient-to-br border ${project.theme.metricGradient} ${project.theme.metricCard}`}
                     >
-                      <p className={`font-display text-2xl md:text-3xl font-semibold ${project.theme.metricValue}`}>{m.value}</p>
-                      <p className={`text-sm mt-1 leading-snug ${project.theme.metricLabel}`}>{m.label}</p>
+                      <p
+                        className={`font-display text-2xl md:text-3xl font-semibold ${project.theme.metricValue}`}
+                      >
+                        {m.value}
+                      </p>
+                      <p
+                        className={`text-sm mt-1 leading-snug ${project.theme.metricLabel}`}
+                      >
+                        {m.label}
+                      </p>
                     </div>
                   ))}
                 </div>
               </motion.div>
             </div>
-
-
           </div>
         </motion.section>
       ))}

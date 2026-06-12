@@ -40,7 +40,7 @@ export function SiteFooter() {
               />
             </Link>
             <p className="text-sm text-foreground/65 leading-relaxed max-w-xs">
-              A youth-led organization developing the next generation of Filipino leaders through service and innovation.
+              An internationally recognized development and impact consulting firm rooted in Asia.
             </p>
           </div>
           <div>

@@ -18,6 +18,7 @@ const partnerLogos: Record<string, string> = {
   "USAID": "usaid.png",
   "European Union": "european-union.png",
   "ASEAN": "asean.png",
+  "ADB": "adb.png",
   "ING": "ing.png",
   "UNICEF": "unicef.png",
   "UNDP": "undp.png",
@@ -53,7 +54,11 @@ export default function Home() {
                 <img
                   src={`/partners/${file}`}
                   alt={`${name} logo`}
-                  className="object-contain max-h-14 md:max-h-16 w-auto"
+                  className={`object-contain w-auto ${
+                    name === "ADB"
+                      ? "max-h-28 md:max-h-32 lg:max-h-36"
+                      : "max-h-20 md:max-h-24 lg:max-h-28"
+                  }`}
                 />
               </div>
             ))}

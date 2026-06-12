@@ -9,26 +9,33 @@ const fadeUp = {
   animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease } },
 };
 
-const partnerLogos: Record<string, string> = {
-  "United Nations": "united-nations.png",
-  "USAID": "usaid.png",
-  "European Union": "european-union.png",
-  "ASEAN": "asean.png",
-  "ING": "ing.png",
-  "UNICEF": "unicef.png",
-  "UNDP": "undp.png",
-  "National Youth Commission": "nyc.png",
-  "IFRC": "ifrc.png",
-  "United Nations Foundation": "un-foundation.png",
-  "Enactus": "enactus.png",
-  "World Scouts": "world-scouts.png",
-  "Duke of Edinburgh": "duke-of-edinburgh.png",
-  "The Asia Foundation": "the-asia-foundation.png",
-  "RTI": "rti.png",
-  "Resolution Project": "resolution-project.png",
-  "Global Youth Mobilization": "global-youth-mobilization.png",
-  "World YMCA": "world-ymca.png",
-};
+interface Partner {
+  name: string;
+  file: string;
+  description: string;
+}
+
+const partners: Partner[] = [
+  { name: "United Nations", file: "united-nations.png", description: "Global partner through the various UN bodies that have funded and supported our programs." },
+  { name: "USAID", file: "usaid.png", description: "Funded catalytic programs on democracy, education, and public-private partnerships centered around youth and local communities." },
+  { name: "European Union", file: "european-union.png", description: "Funded digital innovation programs across Southeast Asia that provided seed funding to various startups focusing on addressing the digital divide in their countries." },
+  { name: "ASEAN", file: "asean.png", description: "Supported and recognized our work on skills, education, and public-private partnerships across the region." },
+  { name: "ADB", file: "adb.png", description: "Technical partner for AI for Asia" },
+  { name: "ING", file: "ing.png", description: "Funded catalytic programs on providing adolescents access to government funding and creating national ecosystems for innovation and entrepreneurship in the Philippines." },
+  { name: "UNICEF", file: "unicef.png", description: "Funded catalytic programs on providing adolescents access to government funding and creating national ecosystems for innovation and entrepreneurship in the Philippines." },
+  { name: "UNDP", file: "undp.png", description: "Funded social innovation programs that supported local access to government funding for youth." },
+  { name: "National Youth Commission", file: "nyc.png", description: "Awarded the Yunus and Youth Fellowship." },
+  { name: "IFRC", file: "ifrc.png", description: "Funded educational hubs launched during the COVID-19 pandemic covering 12 communities and over 10,000+ learners and teachers." },
+  { name: "United Nations Foundation", file: "un-foundation.png", description: "Funded educational hubs launched during the COVID-19 pandemic covering 12 communities and over 10,000+ learners and teachers." },
+  { name: "Enactus", file: "enactus.png", description: "Empowering student social entrepreneurship with Siklab on SDG-aligned programs." },
+  { name: "World Scouts", file: "world-scouts.png", description: "Funded educational hubs launched during the COVID-19 pandemic covering 12 communities and over 10,000+ learners and teachers." },
+  { name: "Duke of Edinburgh", file: "duke-of-edinburgh.png", description: "Funded educational hubs launched during the COVID-19 pandemic covering 12 communities and over 10,000+ learners and teachers." },
+  { name: "The Asia Foundation", file: "the-asia-foundation.png", description: "Development partner for programs across Asia focused on governance and education." },
+  { name: "RTI", file: "rti.png", description: "Research and institutional partner for evidence-based education programs." },
+  { name: "Resolution Project", file: "resolution-project.png", description: "Partnered on social venture support for young leaders across the region." },
+  { name: "Global Youth Mobilization", file: "global-youth-mobilization.png", description: "Funded educational hubs launched during the COVID-19 pandemic covering 12 communities and over 10,000+ learners and teachers." },
+  { name: "World YMCA", file: "world-ymca.png", description: "Funded educational hubs launched during the COVID-19 pandemic covering 12 communities and over 10,000+ learners and teachers." },
+];
 
 export default function Partners() {
   return (
@@ -59,17 +66,24 @@ export default function Partners() {
           variants={{ animate: { transition: { staggerChildren: 0.04 } } }}
           className="grid grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/10"
         >
-          {Object.entries(partnerLogos).map(([name, file]) => (
+          {partners.map((partner) => (
             <motion.div
-              key={name}
+              key={partner.name}
               variants={fadeUp}
-              className="border-b border-r border-foreground/10 p-8"
+              className="border-b border-r border-foreground/10 p-8 flex flex-col items-center justify-center"
             >
               <img
-                src={`/partners/${file}`}
-                alt={`${name} logo`}
-                className="object-contain max-h-16 md:max-h-20 w-auto mx-auto"
+                src={`/partners/${partner.file}`}
+                alt={`${partner.name} logo`}
+                className={`object-contain w-auto mx-auto mb-4 ${
+                  partner.name === "ADB"
+                    ? "max-h-24 md:max-h-28"
+                    : "max-h-16 md:max-h-20"
+                }`}
               />
+              <p className="text-xs text-center text-muted-foreground/70 leading-relaxed max-w-[220px]">
+                {partner.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

@@ -15,7 +15,7 @@ function WordReveal({
   delay: number;
 }) {
   return (
-    <span className="inline-block overflow-hidden leading-[1.1]">
+    <span className="inline-block leading-[1.3]">
       <motion.span
         initial={{ opacity: 0, filter: "blur(4px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
@@ -150,7 +150,7 @@ export function HeroSection() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative w-full overflow-hidden cursor-default"
-      style={{ height: "78vh", minHeight: "520px" }}
+      style={{ height: "85vh", minHeight: "600px" }}
     >
       <motion.img
         ref={imgRef}
@@ -179,48 +179,48 @@ export function HeroSection() {
             }}
             className="group relative"
           >
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-foreground max-w-4xl">
-              <span className="inline-flex items-baseline flex-wrap gap-x-[0.15em]">
-                <WordReveal delay={0.6}>Leaders of</WordReveal>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight text-foreground max-w-4xl">
+              <span className="inline-flex items-baseline flex-wrap gap-x-[0.15em] justify-center">
+                <WordReveal delay={0.6}>Tomorrow's way of</WordReveal>
+                <span className="basis-full h-0" aria-hidden />
+                <WordReveal delay={0.8}>doing things,</WordReveal>
                 <span className="relative inline-flex items-baseline">
-                <motion.span
-                  animate={{ opacity: [0.08, 0.25, 0.08], scale: [1, 1.2, 1] }}
-                  transition={breathe}
-                  className="absolute -inset-x-16 -inset-y-8 rounded-full pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle, rgba(217,119,6,0.18) 0%, rgba(234,88,12,0.08) 40%, transparent 70%)",
-                    filter: "blur(40px)",
-                  }}
-                />
-                <motion.em
-                  animate={controls}
-                  onMouseEnter={handleGlowEnter}
-                  onMouseLeave={handleGlowLeave}
-                  whileHover={{
-                    backgroundPosition: "0% 0%",
-                    transition: { duration: 0.5, ease: "easeOut" },
-                  }}
-                  transition={{
-                    backgroundPosition: {
-                      duration: 0.5,
-                      ease: "easeOut",
-                    },
-                  }}
-                  className="not-italic bg-clip-text text-transparent group-hover:tracking-[0.02em] transition-[letter-spacing] duration-500"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(135deg, #fbbf24 0%, #fb923c 25%, #ef4444 50%, #f59e0b 50%, #f97316 75%, #c2410c 100%)",
-                    backgroundSize: "200% 100%",
-                    backgroundPosition: "100% 0%",
-                  }}
-                >
-                  Tomorrow
-                </motion.em>
+                  <motion.span
+                    animate={{ opacity: [0.08, 0.25, 0.08], scale: [1, 1.2, 1] }}
+                    transition={breathe}
+                    className="absolute -inset-x-16 -inset-y-8 rounded-full pointer-events-none"
+                    style={{
+                      background:
+                        "radial-gradient(circle, rgba(217,119,6,0.18) 0%, rgba(234,88,12,0.08) 40%, transparent 70%)",
+                      filter: "blur(40px)",
+                    }}
+                  />
+                  <motion.em
+                    animate={controls}
+                    onMouseEnter={handleGlowEnter}
+                    onMouseLeave={handleGlowLeave}
+                    whileHover={{
+                      backgroundPosition: "0% 0%",
+                      transition: { duration: 0.5, ease: "easeOut" },
+                    }}
+                    transition={{
+                      backgroundPosition: {
+                        duration: 0.5,
+                        ease: "easeOut",
+                      },
+                    }}
+                    className="not-italic bg-clip-text text-transparent group-hover:tracking-[0.02em] transition-[letter-spacing] duration-500"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(135deg, #fbbf24 0%, #fb923c 25%, #ef4444 50%, #f59e0b 50%, #f97316 75%, #c2410c 100%)",
+                      backgroundSize: "200% 100%",
+                      backgroundPosition: "100% 0%",
+                    }}
+                  >
+                    today<span className="text-amber-600/80">.</span>
+                  </motion.em>
+                </span>
               </span>
-              </span>
-              ,<br className="hidden md:block" />{" "}
-              <WordReveal delay={1.0}>partners of today.</WordReveal>
             </h1>
 
             <AnimatePresence>
@@ -248,14 +248,7 @@ export function HeroSection() {
             />
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, filter: "blur(3px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.0, delay: 1.2, ease: "easeOut" }}
-            className="mt-6 text-xs md:text-sm uppercase tracking-[0.35em] text-foreground/60"
-          >
-            Siklab Philippines
-          </motion.p>
+
         </div>
       )}
     </section>
