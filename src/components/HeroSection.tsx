@@ -180,8 +180,9 @@ export function HeroSection() {
             className="group relative"
           >
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-foreground max-w-4xl">
-              <WordReveal delay={0.6}>Leaders of</WordReveal>{" "}
-              <span className="relative inline-block">
+              <span className="inline-flex items-baseline flex-wrap gap-x-[0.15em]">
+                <WordReveal delay={0.6}>Leaders of</WordReveal>
+                <span className="relative inline-flex items-baseline">
                 <motion.span
                   animate={{ opacity: [0.08, 0.25, 0.08], scale: [1, 1.2, 1] }}
                   transition={breathe}
@@ -216,6 +217,7 @@ export function HeroSection() {
                 >
                   Tomorrow
                 </motion.em>
+              </span>
               </span>
               ,<br className="hidden md:block" />{" "}
               <WordReveal delay={1.0}>partners of today.</WordReveal>

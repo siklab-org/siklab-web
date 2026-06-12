@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { workAreas } from "@/src/data/areas";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -8,15 +9,6 @@ const fadeUp = {
   initial: { y: 32, opacity: 0 },
   animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease } },
 };
-
-const areas = [
-  { t: "Education", d: "Programs that expand access, quality, and equity in learning." },
-  { t: "International Exchange", d: "Bridging youth across borders through global mobility." },
-  { t: "Public-Private Partnership", d: "Bringing governments and industry together for shared outcomes." },
-  { t: "Development Consulting", d: "Strategy and program design for institutions across Asia." },
-  { t: "AI Application", d: "Applied AI literacy and tooling for the next generation." },
-  { t: "Social Innovation", d: "Backing ventures that solve real community problems." },
-];
 
 export default function Areas() {
   return (
@@ -35,19 +27,34 @@ export default function Areas() {
           </motion.h1>
         </motion.div>
       </section>
+
       <section className="mx-auto max-w-6xl px-6 pb-24">
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-2">
-          {areas.map((a) => (
+        <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+          {workAreas.map((area) => (
             <motion.div
-              key={a.t}
+              key={area.title}
               initial="initial"
               whileInView="animate"
-              viewport={{ once: true, margin: "-40px" }}
-              variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
-              className="py-8 border-b border-foreground/10"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={{ animate: { transition: { staggerChildren: 0.08 } } }}
+              className="group rounded-2xl border border-foreground/10 bg-gradient-to-br from-transparent to-foreground/[0.02] p-6 md:p-8 transition-all duration-300 hover:border-primary/20 hover:from-primary/[0.02]"
             >
-              <motion.h2 variants={fadeUp} className="font-display text-2xl text-foreground">{a.t}</motion.h2>
-              <motion.p variants={fadeUp} className="mt-3 text-muted-foreground leading-relaxed">{a.d}</motion.p>
+              <motion.div variants={fadeUp} className="flex items-start justify-between mb-3">
+                <h2 className="font-display text-2xl text-foreground">{area.title}</h2>
+              </motion.div>
+              <motion.p variants={fadeUp} className="text-sm text-muted-foreground leading-relaxed mb-4">
+                {area.description}
+              </motion.p>
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-1.5">
+                {area.subareas.map((sub) => (
+                  <span
+                    key={sub}
+                    className="text-[10px] uppercase tracking-[0.08em] px-2.5 py-1 rounded-full bg-foreground/5 text-muted-foreground/70 border border-foreground/10"
+                  >
+                    {sub}
+                  </span>
+                ))}
+              </motion.div>
             </motion.div>
           ))}
         </div>
