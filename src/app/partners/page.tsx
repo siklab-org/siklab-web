@@ -10,12 +10,26 @@ export const metadata: Metadata = {
   },
 };
 
-const partners = [
-  "United Nations", "USAID", "European Union", "ASEAN", "ING", "UNICEF",
-  "UNDP", "National Youth Commission", "IFRC", "United Nations Foundation",
-  "Enactus", "World Scouts", "Duke of Edinburgh", "The Asia Foundation",
-  "RTI", "Resolution Project", "Global Youth Mobilization", "World YMCA",
-];
+const partnerLogos: Record<string, string> = {
+  "United Nations": "united-nations.png",
+  "USAID": "usaid.png",
+  "European Union": "european-union.png",
+  "ASEAN": "asean.png",
+  "ING": "ing.png",
+  "UNICEF": "unicef.png",
+  "UNDP": "undp.png",
+  "National Youth Commission": "nyc.png",
+  "IFRC": "ifrc.png",
+  "United Nations Foundation": "un-foundation.png",
+  "Enactus": "enactus.png",
+  "World Scouts": "world-scouts.png",
+  "Duke of Edinburgh": "duke-of-edinburgh.png",
+  "The Asia Foundation": "the-asia-foundation.png",
+  "RTI": "rti.png",
+  "Resolution Project": "resolution-project.png",
+  "Global Youth Mobilization": "global-youth-mobilization.png",
+  "World YMCA": "world-ymca.png",
+};
 
 export default function Partners() {
   return (
@@ -30,12 +44,16 @@ export default function Partners() {
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-24">
         <div className="grid grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/10">
-          {partners.map((p) => (
+          {Object.entries(partnerLogos).map(([name, file]) => (
             <div
-              key={p}
-              className="border-b border-r border-foreground/10 p-8 font-display text-lg text-foreground/80 hover:text-primary transition-colors"
+              key={name}
+              className="border-b border-r border-foreground/10 p-8"
             >
-              {p}
+              <img
+                src={`/partners/${file}`}
+                alt={`${name} logo`}
+                className="object-contain max-h-16 md:max-h-20 w-auto mx-auto"
+              />
             </div>
           ))}
         </div>

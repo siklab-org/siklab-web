@@ -1,0 +1,88 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Siklab" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "Siklab" [ref=e5]
+      - button "Open menu" [ref=e6] [cursor=pointer]:
+        - img
+        - generic [ref=e7]: Open menu
+  - main [ref=e8]:
+    - generic [ref=e12]:
+      - paragraph [ref=e13]: In partnership with
+      - generic [ref=e14]:
+        - img "United Nations logo" [ref=e16]
+        - img "USAID logo" [ref=e18]
+        - img "European Union logo" [ref=e20]
+        - img "ASEAN logo" [ref=e22]
+        - img "ING logo" [ref=e24]
+        - img "UNICEF logo" [ref=e26]
+        - img "UNDP logo" [ref=e28]
+        - img "National Youth Commission logo" [ref=e30]
+        - img "IFRC logo" [ref=e32]
+        - img "United Nations Foundation logo" [ref=e34]
+        - img "Enactus logo" [ref=e36]
+        - img "World Scouts logo" [ref=e38]
+        - img "Duke of Edinburgh logo" [ref=e40]
+        - img "The Asia Foundation logo" [ref=e42]
+        - img "RTI logo" [ref=e44]
+        - img "Resolution Project logo" [ref=e46]
+        - img "Global Youth Mobilization logo" [ref=e48]
+        - img "World YMCA logo" [ref=e50]
+    - generic [ref=e52]:
+      - paragraph [ref=e53]: Let's build together
+      - heading "Get in touch with us" [level=2] [ref=e54]
+      - paragraph [ref=e55]: Whether you're an organization seeking partnership or a young leader ready to grow, we'd love to hear from you.
+      - link "Contact us →" [ref=e57] [cursor=pointer]:
+        - /url: /contact
+        - text: Contact us
+        - generic [ref=e58]: →
+  - contentinfo [ref=e59]:
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - link "Siklab" [ref=e63] [cursor=pointer]:
+            - /url: /
+            - img "Siklab" [ref=e64]
+          - paragraph [ref=e65]: A youth-led organization developing the next generation of Filipino leaders through service and innovation.
+        - generic [ref=e66]:
+          - heading "Quick Links" [level=3] [ref=e67]
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Home" [ref=e70] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e71]:
+              - link "About" [ref=e72] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e73]:
+              - link "Programs" [ref=e74] [cursor=pointer]:
+                - /url: /programs
+            - listitem [ref=e75]:
+              - link "Areas of Work" [ref=e76] [cursor=pointer]:
+                - /url: /areas
+            - listitem [ref=e77]:
+              - link "Partners" [ref=e78] [cursor=pointer]:
+                - /url: /partners
+            - listitem [ref=e79]:
+              - link "Contact" [ref=e80] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e81]:
+          - heading "Contact" [level=3] [ref=e82]
+          - list [ref=e83]:
+            - listitem [ref=e84]:
+              - link "hello@siklab.org.ph" [ref=e85] [cursor=pointer]:
+                - /url: mailto:hello@siklab.org.ph
+            - listitem [ref=e86]: Manila, Philippines
+        - generic [ref=e87]:
+          - heading "Follow Us" [level=3] [ref=e88]
+          - generic [ref=e89]:
+            - link "Facebook" [ref=e90] [cursor=pointer]:
+              - /url: https://web.facebook.com/SiklabPHL
+              - img "Facebook" [ref=e91]
+            - link "LinkedIn" [ref=e92] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/siklab-pilipinas-inc/
+              - img "LinkedIn" [ref=e93]
+      - generic [ref=e94]: © 2026 Siklab Pilipinas. All rights reserved.
+  - button "Open Next.js Dev Tools" [ref=e100] [cursor=pointer]:
+    - img [ref=e101]
+  - alert [ref=e104]

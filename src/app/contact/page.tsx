@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,6 +9,19 @@ export const metadata: Metadata = {
     description: "Reach the Siklab team.",
   },
 };
+
+const socials = [
+  {
+    href: "https://web.facebook.com/SiklabPHL",
+    src: "/facebook.svg",
+    alt: "Facebook",
+  },
+  {
+    href: "https://www.linkedin.com/company/siklab-pilipinas-inc/",
+    src: "/linkedin.svg",
+    alt: "LinkedIn",
+  },
+] as const;
 
 export default function Contact() {
   return (
@@ -29,6 +43,20 @@ export default function Contact() {
             <div className="text-xs uppercase tracking-widest text-muted-foreground">Based in</div>
             <div className="mt-2 font-display text-2xl text-foreground">Manila, Philippines</div>
           </div>
+        </div>
+        <div className="mt-10 flex items-center gap-4 border-t border-foreground/10 pt-10">
+          <span className="text-xs uppercase tracking-widest text-muted-foreground">Follow us</span>
+          {socials.map((s) => (
+            <a
+              key={s.alt}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+            >
+              <Image src={s.src} alt={s.alt} width={28} height={28} />
+            </a>
+          ))}
         </div>
       </section>
     </>

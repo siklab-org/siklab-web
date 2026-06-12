@@ -18,14 +18,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Siklab — Leaders of Tomorrow",
-    template: "%s — Siklab",
+    default: "Siklab Philippines",
+    template: "%s | Siklab",
   },
   description:
     "Siklab is an internationally recognized development consulting organization focused on high-level partnerships in Asia.",
   authors: [{ name: "Siklab" }],
   openGraph: {
-    title: "Siklab — Leaders of Tomorrow",
+    title: "Siklab",
     description:
       "Developing young leaders across Asia through education, exchange, and innovation.",
     type: "website",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     site: "@Siklab",
-    title: "Siklab — Leaders of Tomorrow",
+    title: "Siklab",
     description:
       "Developing young leaders across Asia through education, exchange, and innovation.",
     images:
