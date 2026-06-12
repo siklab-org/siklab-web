@@ -65,7 +65,7 @@ const projects = [
       { value: "33", label: "Countries in network" },
       { value: "1000+", label: "Universities" },
       { value: "60,000+", label: "Filipino students" },
-      { value: "SDG-aligned", label: "All ventures" },
+      { value: "15", label: "Years of impact" },
     ],
     theme: {
       section: "bg-transparent",
