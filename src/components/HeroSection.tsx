@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import {
   motion,
   useAnimationControls,
@@ -97,17 +98,10 @@ const glowHover =
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
   const controls = useAnimationControls();
   const [isHovered, setIsHovered] = useState(false);
   const [isBreathing, setIsBreathing] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
-
-  useEffect(() => {
-    if (imgRef.current?.complete) {
-      setImageLoaded(true);
-    }
-  }, []);
 
   useEffect(() => {
     if (!isBreathing) return;
@@ -152,17 +146,23 @@ export function HeroSection() {
       className="relative w-full overflow-hidden cursor-default"
       style={{ height: "85vh", minHeight: "600px" }}
     >
-      <motion.img
-        ref={imgRef}
+      <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.6, ease: "easeOut" }}
-        src="/hero.webp"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-        onLoad={() => setImageLoaded(true)}
-        onError={() => setImageLoaded(true)}
-      />
+        className="absolute inset-0"
+      >
+        <Image
+          src="/hero.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover select-none pointer-events-none"
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageLoaded(true)}
+        />
+      </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80" />
 
       {imageLoaded && (
