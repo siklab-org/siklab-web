@@ -12,6 +12,7 @@ const nav = [
   { href: "/about", label: "About" },
   { href: "/areas", label: "Areas of Work" },
   { href: "/partners", label: "Partners" },
+  { href: "/board-of-advisors", label: "Board of Advisors" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
