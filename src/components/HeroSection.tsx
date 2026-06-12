@@ -1,11 +1,8 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   motion,
-  useMotionValue,
-  useTransform,
-  useSpring,
   useAnimationControls,
   AnimatePresence,
 } from "framer-motion";
@@ -117,43 +114,24 @@ export function HeroSection() {
     });
   }, [isBreathing, controls]);
 
-  const handleGlowEnter = useCallback(() => {
+  const handleGlowEnter = () => {
     setIsBreathing(false);
     controls.start({
       filter: glowHover,
       transition: { duration: 0.4, ease: "easeOut" },
     });
-  }, [controls]);
+  };
 
-  const handleGlowLeave = useCallback(() => {
+  const handleGlowLeave = () => {
     controls.start({
       filter: glowBreathing,
       transition: { duration: 0.5, ease: "easeOut" },
     }).then(() => setIsBreathing(true));
-  }, [controls]);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-  const bgX = useTransform(springX, [-0.5, 0.5], [-12, 12]);
-  const bgY = useTransform(springY, [-0.5, 0.5], [-12, 12]);
-
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const rect = sectionRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      mouseX.set(x);
-      mouseY.set(y);
-    },
-    [mouseX, mouseY],
-  );
+  };
 
   const breathe = {
     duration: 6,
-    repeat: Infinity as const,
+    repeat: Infinity,
     ease: "easeInOut" as const,
     delay: 1.8,
   };
@@ -161,7 +139,6 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative w-full overflow-hidden cursor-default"
@@ -171,7 +148,6 @@ export function HeroSection() {
         initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.6, ease: "easeOut" }}
-        style={{ x: bgX, y: bgY }}
         src="/hero.png"
         alt=""
         className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
