@@ -65,13 +65,13 @@ export default function Partners() {
           whileInView="animate"
           viewport={{ once: true, margin: "-60px" }}
           variants={{ animate: { transition: { staggerChildren: 0.04 } } }}
-          className="grid grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/10"
+          className="grid grid-cols-2 md:grid-cols-3"
         >
           {partners.map((partner) => (
             <motion.div
               key={partner.name}
               variants={fadeUp}
-              className="border-b border-r border-foreground/10 p-8 flex flex-col items-center justify-center"
+              className="p-8 flex flex-col items-center justify-center"
             >
               <div className="h-28 md:h-36 flex items-center justify-center mb-4 w-full">
                 <img
@@ -79,8 +79,8 @@ export default function Partners() {
                   alt={`${partner.name} logo`}
                   className={`object-contain w-auto ${
                     partner.name === "ADB" || partner.name === "United Nations" || partner.name === "Khan Academy"
-                      ? "max-h-24 md:max-h-32"
-                      : "max-h-20 md:max-h-24"
+                      ? "max-h-28 md:max-h-36"
+                      : "max-h-24 md:max-h-28"
                   }`}
                 />
               </div>

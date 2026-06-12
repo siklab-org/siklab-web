@@ -52,8 +52,8 @@ export default function Contact() {
         >
           <motion.div variants={fadeUp}>
             <div className="text-xs uppercase tracking-widest text-muted-foreground">Email</div>
-            <a href="mailto:hello@siklab.org.ph" className="mt-2 block font-display text-2xl text-primary hover:underline">
-              hello@siklab.org.ph
+            <a href="mailto:secretariat@siklab.org.ph" className="mt-2 block font-display text-2xl text-primary hover:underline">
+              secretariat@siklab.org.ph
             </a>
           </motion.div>
           <motion.div variants={fadeUp}>

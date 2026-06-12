@@ -102,7 +102,7 @@ export default function About() {
                 variants={fadeUp}
                 className="group flex items-start gap-4"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-muted/50 border border-foreground/10 flex items-center justify-center overflow-hidden flex-shrink-0 p-2.5 transition-all duration-300 group-hover:border-primary/25 group-hover:bg-primary/[0.03]">
+                <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center flex-shrink-0 p-2">
                   <img
                     src={award.imgSrc}
                     alt={award.organization}

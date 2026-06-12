@@ -63,10 +63,10 @@ export function SiteFooter() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="mailto:hello@siklab.org.ph"
+                  href="mailto:secretariat@siklab.org.ph"
                   className="text-sm text-foreground/75 hover:text-primary transition-colors"
                 >
-                  hello@siklab.org.ph
+                  secretariat@siklab.org.ph
                 </a>
               </li>
               <li className="text-sm text-foreground/65">Manila, Philippines</li>

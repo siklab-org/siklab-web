@@ -7,6 +7,12 @@ export interface Award {
 
 export const awards: Award[] = [
   {
+    title: "Forbes 30 Under 30",
+    organization: "Forbes",
+    description: "Featured for 30 under 30 list for social impact in Asia.",
+    imgSrc: "/awards/forbes.png",
+  },
+  {
     title: "Misk 20 Under 30",
     organization: "Misk Global Forum",
     description: "Received the Misk 20 under 30 award during the Misk Global Forum held in Riyadh, Saudi Arabia.",
