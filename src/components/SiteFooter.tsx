@@ -12,28 +12,31 @@ const nav = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-foreground/10 mt-24">
+    <footer className="border-t-2 border-primary/15 bg-linear-to-b from-transparent to-blue-50/40 dark:to-blue-950/25 mt-24">
       <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
           <Link href="/" className="block mb-1">
             <Image
               src="/siklab-logo.png"
               alt="Siklab"
-              width={120}
-              height={30}
-              className="h-6 w-auto"
+              width={200}
+              height={60}
+              className="h-12 w-auto"
             />
           </Link>
-          <p className="text-sm text-muted-foreground mt-1">Leaders of Tomorrow.</p>
         </div>
-        <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted-foreground">
+        <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-foreground/75 dark:text-foreground/80">
           {nav.map((i) => (
-            <Link key={i.href} href={i.href} className="hover:text-primary transition-colors">
+            <Link
+              key={i.href}
+              href={i.href}
+              className="hover:text-primary transition-colors"
+            >
               {i.label}
             </Link>
           ))}
         </div>
-        <div className="text-xs text-muted-foreground">
+        <div className="text-xs text-foreground/50 dark:text-foreground/60">
           &copy; {new Date().getFullYear()} Siklab
         </div>
       </div>

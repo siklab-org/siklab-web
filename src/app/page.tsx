@@ -58,7 +58,7 @@ export default function Home() {
           <div>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 rounded-full border border-foreground/20 px-8 py-3.5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
+              className="group inline-flex items-center gap-3 rounded-full border border-primary/25 px-8 py-3.5 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             >
               Contact us
               <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
