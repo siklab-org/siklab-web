@@ -50,7 +50,12 @@ const partners: Partner[] = [
   {
     name: "Khan Academy",
     file: "khan-academy.png",
-    description: "Co-presenter for Enactus Philippines",
+    description: "Co-presenter for Enactus Philippines.",
+  },
+  {
+    name: "KPMG",
+    file: "kpmg.png",
+    description: "Partner for Enactus.",
   },
   {
     name: "ING",

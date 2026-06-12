@@ -1,32 +1,20 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 import { HeroSection } from "@/src/components/HeroSection";
-
-export const metadata: Metadata = {
-  title: "Siklab — Leaders of Tomorrow",
-  description:
-    "Siklab is an internationally recognized development consulting organization focused on high-level partnerships in Asia.",
-  openGraph: {
-    title: "Siklab — Leaders of Tomorrow",
-    description:
-      "Developing young leaders across Asia through education, exchange, and innovation.",
-  },
-};
 
 const partnerLogos: Record<string, string> = {
   "United Nations": "united-nations.png",
-  "USAID": "usaid.png",
+  USAID: "usaid.png",
   "European Union": "european-union.png",
-  "ASEAN": "asean.png",
-  "ADB": "adb.png",
-  "ING": "ing.png",
+  ASEAN: "asean.png",
+  ADB: "adb.png",
+  ING: "ing.png",
   "Khan Academy": "khan-academy.png",
-  "Enactus": "enactus.png",
+  Enactus: "enactus.png",
+
+  "Resolution Project": "resolution-project.png",
+  UNICEF: "unicef.png",
   "World Scouts": "world-scouts.png",
   "Duke of Edinburgh": "duke-of-edinburgh.png",
-  "Resolution Project": "resolution-project.png",
-  "UNICEF": "unicef.png",
-
 };
 
 export default function Home() {
@@ -48,10 +36,11 @@ export default function Home() {
                 <img
                   src={`/partners/${file}`}
                   alt={`${name} logo`}
-                  className={`object-contain w-auto ${name === "ADB"
+                  className={`object-contain w-auto ${
+                    name === "ADB"
                       ? "max-h-28 md:max-h-32 lg:max-h-36"
                       : "max-h-20 md:max-h-24 lg:max-h-28"
-                    }`}
+                  }`}
                 />
               </div>
             ))}
@@ -68,8 +57,8 @@ export default function Home() {
             Get in touch with us
           </h2>
           <p className="text-foreground/60 max-w-xl mx-auto mb-10 text-base md:text-lg leading-relaxed">
-            Whether you&apos;re an organization seeking partnership or a young leader
-            ready to grow, we&apos;d love to hear from you.
+            Whether you&apos;re an organization seeking partnership or a young
+            leader ready to grow, we&apos;d love to hear from you.
           </p>
           <div>
             <Link
@@ -77,7 +66,9 @@ export default function Home() {
               className="group inline-flex items-center gap-3 rounded-full border border-primary/25 px-8 py-3.5 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             >
               Contact us
-              <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
+              <span className="transition-transform group-hover:translate-x-1">
+                &rarr;
+              </span>
             </Link>
           </div>
         </div>

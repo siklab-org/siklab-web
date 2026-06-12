@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import { SiteHeader } from "@/src/components/SiteHeader";
 import { SiteFooter } from "@/src/components/SiteFooter";
 import "./globals.css";
@@ -16,24 +17,54 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#ffffff",
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://siklab.org"),
   title: {
-    default: "Siklab Philippines",
+    default: "Siklab",
     template: "%s | Siklab",
   },
   description:
     "Siklab is an internationally recognized development consulting organization focused on high-level partnerships in Asia.",
   authors: [{ name: "Siklab" }],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "48x48" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     title: "Siklab",
     description:
       "Developing young leaders across Asia through education, exchange, and innovation.",
     type: "website",
+    url: "https://siklab.org",
+    siteName: "Siklab",
     images:
       "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e5cc12f1-c6d3-4dd7-95a1-8a680c6490ac/id-preview-43303485--70c5df59-2f12-43af-a28a-cccf6fc2e7fd.lovable.app-1781159719416.png",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     site: "@Siklab",
     title: "Siklab",
     description:
@@ -60,6 +91,12 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: { fontFamily: "var(--font-sans)" },
+          }}
+        />
       </body>
     </html>
   );

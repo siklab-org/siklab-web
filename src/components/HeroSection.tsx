@@ -144,7 +144,7 @@ export function HeroSection() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative w-full overflow-hidden cursor-default"
-      style={{ height: "85vh", minHeight: "600px" }}
+      style={{ height: "65vh", minHeight: "480px" }}
     >
       <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
@@ -166,12 +166,19 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80" />
 
       {imageLoaded && (
-        <div key="text-content" className="relative z-10 mx-auto max-w-7xl px-6 h-full flex flex-col justify-center items-center text-center">
+        <div key="text-content" className="relative z-10 mx-auto max-w-7xl px-6 h-full flex flex-col justify-center pt-8 md:pt-12 items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: [0.2, 0.5, 0.2], rotate: [0, 45, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="w-2 h-2 bg-amber-400/50 mb-5"
+            style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}
+          />
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{
               opacity: 1,
-              y: [0, -8, 0, -4, 0],
+              y: [0, -6, 0, -3, 0],
             }}
             transition={{
               opacity: { duration: 1.2, delay: 0.6, ease: "easeOut" },
@@ -179,7 +186,7 @@ export function HeroSection() {
             }}
             className="group relative"
           >
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.15] tracking-tight text-foreground max-w-4xl">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground max-w-4xl">
               <span className="inline-flex items-baseline flex-wrap gap-x-[0.15em] justify-center">
                 <WordReveal delay={0.6}>Tomorrow's way of</WordReveal>
                 <span className="basis-full h-0" aria-hidden />
