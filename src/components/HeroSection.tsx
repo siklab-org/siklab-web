@@ -17,9 +17,9 @@ function WordReveal({
   return (
     <span className="inline-block overflow-hidden leading-[1.1]">
       <motion.span
-        initial={{ y: 48, opacity: 0, rotateX: 25 }}
-        animate={{ y: 0, opacity: 1, rotateX: 0 }}
-        transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0, filter: "blur(4px)" }}
+        animate={{ opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 1.2, delay, ease: [0.22, 1, 0.36, 1] }}
         className="inline-block"
       >
         {children}
@@ -97,10 +97,17 @@ const glowHover =
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
   const controls = useAnimationControls();
   const [isHovered, setIsHovered] = useState(false);
   const [isBreathing, setIsBreathing] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setImageLoaded(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (!isBreathing) return;
@@ -146,6 +153,7 @@ export function HeroSection() {
       style={{ height: "78vh", minHeight: "520px" }}
     >
       <motion.img
+        ref={imgRef}
         initial={{ scale: 1.08, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.6, ease: "easeOut" }}
@@ -153,6 +161,7 @@ export function HeroSection() {
         alt=""
         className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
         onLoad={() => setImageLoaded(true)}
+        onError={() => setImageLoaded(true)}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80" />
 
@@ -238,9 +247,9 @@ export function HeroSection() {
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 1, ease: "easeOut" }}
+            initial={{ opacity: 0, filter: "blur(3px)" }}
+            animate={{ opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 1.0, delay: 1.2, ease: "easeOut" }}
             className="mt-6 text-xs md:text-sm uppercase tracking-[0.35em] text-foreground/60"
           >
             Siklab Philippines

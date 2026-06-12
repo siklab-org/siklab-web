@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Partners",
-  description:
-    "Siklab partners with global institutions including the UN, USAID, ASEAN, and more.",
-  openGraph: {
-    title: "Partners — Siklab",
-    description: "Our partners across institutions worldwide.",
-  },
+import { motion } from "framer-motion";
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const fadeUp = {
+  initial: { y: 32, opacity: 0 },
+  animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease } },
 };
 
 const partnerLogos: Record<string, string> = {
@@ -35,18 +34,35 @@ export default function Partners() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-6 pt-24 pb-10">
-        <p className="text-sm uppercase tracking-[0.3em] text-primary/80 mb-6">Partners</p>
-        <h1 className="font-display text-5xl md:text-6xl tracking-tight">In good company.</h1>
-        <p className="mt-6 max-w-2xl text-muted-foreground leading-relaxed">
-          We work alongside multilateral institutions, governments, foundations, and
-          industry leaders to deliver programs at scale across Asia.
-        </p>
+        <motion.div
+          initial="initial"
+          animate="animate"
+          variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
+        >
+          <motion.p variants={fadeUp} className="text-sm uppercase tracking-[0.3em] text-primary/80 mb-6">
+            Partners
+          </motion.p>
+          <motion.h1 variants={fadeUp} className="font-display text-5xl md:text-6xl tracking-tight">
+            In good company.
+          </motion.h1>
+          <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-muted-foreground leading-relaxed">
+            We work alongside multilateral institutions, governments, foundations, and
+            industry leaders to deliver programs at scale across Asia.
+          </motion.p>
+        </motion.div>
       </section>
       <section className="mx-auto max-w-6xl px-6 pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/10">
+        <motion.div
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={{ animate: { transition: { staggerChildren: 0.04 } } }}
+          className="grid grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/10"
+        >
           {Object.entries(partnerLogos).map(([name, file]) => (
-            <div
+            <motion.div
               key={name}
+              variants={fadeUp}
               className="border-b border-r border-foreground/10 p-8"
             >
               <img
@@ -54,9 +70,9 @@ export default function Partners() {
                 alt={`${name} logo`}
                 className="object-contain max-h-16 md:max-h-20 w-auto mx-auto"
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
     </>
   );

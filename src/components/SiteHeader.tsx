@@ -2,21 +2,33 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/src/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 const nav = [
   { href: "/about", label: "About" },
-  { href: "/programs", label: "Programs" },
   { href: "/areas", label: "Areas of Work" },
   { href: "/partners", label: "Partners" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
+const projectsDropdown = {
+  label: "Projects",
+  items: [
+    { href: "/projects", label: "Projects" },
+    { href: "/past-projects", label: "Past Projects" },
+  ] as const,
+};
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (open) {
@@ -24,8 +36,19 @@ export function SiteHeader() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setProjectsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setProjectsOpen(false), 150);
+  };
 
   return (
     <>
@@ -42,14 +65,61 @@ export function SiteHeader() {
             />
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm">
+            {/* Projects dropdown */}
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className={`relative flex items-center gap-1 pb-1 transition-colors cursor-pointer
+                  after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-primary
+                  after:scale-x-0 after:origin-center after:transition-transform after:duration-300
+                  hover:after:scale-x-100
+                  ${projectsOpen || pathname.startsWith('/projects') || pathname.startsWith('/past-projects') ? 'text-primary after:scale-x-100' : 'text-foreground/70 hover:text-primary'}`}
+              >
+                {projectsDropdown.label}
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${projectsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {projectsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4, scaleY: 0.95 }}
+                    animate={{ opacity: 1, y: 8, scaleY: 1 }}
+                    exit={{ opacity: 0, y: 4, scaleY: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute left-0 top-full min-w-48 rounded-xl border border-foreground/10 bg-background/95 backdrop-blur-xl shadow-lg overflow-hidden"
+                    style={{ transformOrigin: "top center" }}
+                  >
+                    {projectsDropdown.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`block px-5 py-3 text-sm transition-colors hover:bg-foreground/5 ${
+                          pathname === item.href
+                            ? "text-primary font-medium"
+                            : "text-foreground/70 hover:text-foreground"
+                        }`}
+                        onClick={() => setProjectsOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative text-foreground/70 hover:text-primary transition-colors pb-1
+                className={`relative pb-1 transition-colors
                   after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-primary
                   after:scale-x-0 after:origin-center after:transition-transform after:duration-300
-                  hover:after:scale-x-100"
+                  hover:after:scale-x-100
+                  ${pathname === item.href ? 'text-primary after:scale-x-100' : 'text-foreground/70 hover:text-primary'}`}
               >
                 {item.label}
               </Link>
@@ -93,11 +163,32 @@ export function SiteHeader() {
               <span className="sr-only">Close</span>
             </button>
             <div className="flex flex-col gap-4 mt-16">
+              {/* Projects sub-items first */}
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground/50 mt-2 mb-1">Projects</p>
+              {projectsDropdown.items.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-lg font-medium transition-colors ${
+                    pathname === item.href
+                      ? "text-primary"
+                      : "text-foreground/70 hover:text-primary"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div className="h-px bg-foreground/10 my-2" />
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-lg font-medium text-foreground/70 hover:text-primary transition-colors"
+                  className={`text-lg font-medium transition-colors ${
+                    pathname === item.href
+                      ? "text-primary"
+                      : "text-foreground/70 hover:text-primary"
+                  }`}
                   onClick={() => setOpen(false)}
                 >
                   {item.label}

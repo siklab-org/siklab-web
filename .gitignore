@@ -49,3 +49,8 @@ next-env.d.ts
 !.dev.vars.example
 
 !.env.example
+
+# agent environment
+.opencode/
+openspec/
+.playwright-mcp/

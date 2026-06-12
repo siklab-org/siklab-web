@@ -4,7 +4,8 @@ import Link from "next/link";
 const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/programs", label: "Programs" },
+  { href: "/projects", label: "Projects" },
+  { href: "/past-projects", label: "Past Projects" },
   { href: "/areas", label: "Areas of Work" },
   { href: "/partners", label: "Partners" },
   { href: "/contact", label: "Contact" },
