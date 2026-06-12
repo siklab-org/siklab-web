@@ -32,9 +32,9 @@ const projects = [
     logoAlt: "AI for Asia logo",
     metrics: [
       { value: "12", label: "Weeks intensive" },
-      { value: "8", label: "ASEAN nations" },
+      { value: "11", label: "ASEAN nations" },
       { value: "57", label: "Fellows across Asia" },
-      { value: "6", label: "High-level sessions" },
+      { value: "1", label: "Annual Asia-wide summit" },
     ],
     theme: {
       section: "bg-[#050505] text-white border-white/10",
@@ -63,8 +63,8 @@ const projects = [
     logoAlt: "Enactus Philippines logo",
     metrics: [
       { value: "33", label: "Countries in network" },
-      { value: "Nationwide", label: "University presence" },
-      { value: "4", label: "Impact verticals" },
+      { value: "1000+", label: "Universities" },
+      { value: "60,000+", label: "Filipino students" },
       { value: "SDG-aligned", label: "All ventures" },
     ],
     theme: {

@@ -20,20 +20,13 @@ const partnerLogos: Record<string, string> = {
   "ASEAN": "asean.png",
   "ADB": "adb.png",
   "ING": "ing.png",
-  "UNICEF": "unicef.png",
-  "UNDP": "undp.png",
-  "National Youth Commission": "nyc.png",
-  "IFRC": "ifrc.png",
-  "United Nations Foundation": "un-foundation.png",
+  "Khan Academy": "khan-academy.png",
   "Enactus": "enactus.png",
   "World Scouts": "world-scouts.png",
   "Duke of Edinburgh": "duke-of-edinburgh.png",
-  "The Asia Foundation": "the-asia-foundation.png",
-  "RTI": "rti.png",
   "Resolution Project": "resolution-project.png",
-  "Global Youth Mobilization": "global-youth-mobilization.png",
-  "World YMCA": "world-ymca.png",
-  "Khan Academy": "khan-academy.png",
+  "UNICEF": "unicef.png",
+
 };
 
 export default function Home() {
@@ -41,25 +34,24 @@ export default function Home() {
     <>
       <HeroSection />
 
-      <section className="relative w-full border-t border-border/40">
+      <section className="relative w-full bg-white border-t border-border/40">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
           <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/50 mb-10 text-center">
             In partnership with
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-border/20">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-white">
             {Object.entries(partnerLogos).map(([name, file]) => (
               <div
                 key={name}
-                className="bg-background flex items-center justify-center p-6 md:p-8"
+                className="bg-white flex items-center justify-center p-6 md:p-8"
               >
                 <img
                   src={`/partners/${file}`}
                   alt={`${name} logo`}
-                  className={`object-contain w-auto ${
-                    name === "ADB"
+                  className={`object-contain w-auto ${name === "ADB"
                       ? "max-h-28 md:max-h-32 lg:max-h-36"
                       : "max-h-20 md:max-h-24 lg:max-h-28"
-                  }`}
+                    }`}
                 />
               </div>
             ))}

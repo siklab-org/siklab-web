@@ -13,6 +13,7 @@ export interface PastProject {
   impacts?: { value: string; label: string }[];
   logos?: PartnerLogo[];
   projectUrl?: string;
+  projectLogo?: string;
 }
 
 export const pastProjects: PastProject[] = [

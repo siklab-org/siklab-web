@@ -73,15 +73,17 @@ export default function Partners() {
               variants={fadeUp}
               className="border-b border-r border-foreground/10 p-8 flex flex-col items-center justify-center"
             >
-              <img
-                src={`/partners/${partner.file}`}
-                alt={`${partner.name} logo`}
-                className={`object-contain w-auto mx-auto mb-4 ${
-                  partner.name === "ADB"
-                    ? "max-h-24 md:max-h-28"
-                    : "max-h-16 md:max-h-20"
-                }`}
-              />
+              <div className="h-28 md:h-36 flex items-center justify-center mb-4 w-full">
+                <img
+                  src={`/partners/${partner.file}`}
+                  alt={`${partner.name} logo`}
+                  className={`object-contain w-auto ${
+                    partner.name === "ADB" || partner.name === "United Nations" || partner.name === "Khan Academy"
+                      ? "max-h-24 md:max-h-32"
+                      : "max-h-20 md:max-h-24"
+                  }`}
+                />
+              </div>
               <p className="text-xs text-center text-muted-foreground/70 leading-relaxed max-w-[220px]">
                 {partner.description}
               </p>

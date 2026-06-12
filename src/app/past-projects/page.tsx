@@ -77,6 +77,18 @@ export default function PastProjects() {
                         </div>
                       )}
 
+                      {project.projectLogo && (
+                        <div className="flex items-center gap-3 mb-5">
+                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-amber-100/80 border border-amber-200/60 flex items-center justify-center overflow-hidden flex-shrink-0">
+                            <img
+                              src={project.projectLogo}
+                              alt={`${project.name} logo`}
+                              className="w-full h-full object-contain p-1.5"
+                            />
+                          </div>
+                        </div>
+                      )}
+
                       <div className="flex items-center gap-3 mb-4">
                         <span
                           className="text-[10px] uppercase tracking-[0.2em] text-amber-700/60 font-mono"
@@ -99,19 +111,25 @@ export default function PastProjects() {
                       />
 
                       {project.logos && project.logos.length > 0 && (
-                        <div className="flex flex-wrap items-center gap-3 mb-5">
-                          <span className="text-[9px] uppercase tracking-widest text-muted-foreground/50 mr-1">
+                        <div className="mb-5">
+                          <span className="block text-[9px] uppercase tracking-widest text-muted-foreground/50 mb-3">
                             Partners
                           </span>
-                          {project.logos.map((logo) => (
-                            <img
-                              key={logo.src}
-                              src={logo.src}
-                              alt={logo.alt}
-                              className="h-7 md:h-8 w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-                              loading="lazy"
-                            />
-                          ))}
+                          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                            {project.logos.map((logo) => (
+                              <div
+                                key={logo.src}
+                                className="h-8 md:h-10 flex items-center"
+                              >
+                                <img
+                                  src={logo.src}
+                                  alt={logo.alt}
+                                  className="max-h-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                                  loading="lazy"
+                                />
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       )}
 
