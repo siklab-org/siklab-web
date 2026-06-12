@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/src/components/ui/dialog";
@@ -58,18 +58,32 @@ export default function BoardOfAdvisors() {
                 >
                   <motion.div
                     variants={fadeUp}
-                    className="relative rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/[0.02] to-transparent p-8 h-full transition-all duration-400 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
+                    className="relative rounded-2xl overflow-hidden border border-foreground/10 h-full min-h-[360px] md:min-h-[420px] transition-all duration-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30"
                   >
-                    <div className="flex flex-col items-center text-center">
+                    {member.imageSrc ? (
+                      <Image
+                        src={member.imageSrc}
+                        alt={member.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 50vw, 33vw"
+                      />
+                    ) : (
                       <div
-                        className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center transition-all duration-400 group-hover:scale-110 group-hover:shadow-lg`}
+                        className={`absolute inset-0 bg-gradient-to-br ${member.color} flex items-center justify-center transition-transform duration-500 group-hover:scale-105`}
                       >
-                        <span className="font-display text-2xl font-semibold">{member.initials}</span>
+                        <span className="font-display text-6xl md:text-7xl font-bold text-white/30 select-none">
+                          {member.initials}
+                        </span>
                       </div>
+                    )}
 
-                      <h2 className="font-display text-xl text-foreground mt-5 mb-1">{member.name}</h2>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
 
-                      <div className="flex items-center gap-1.5 text-xs text-primary/60 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                    <div className="absolute bottom-0 inset-x-0 p-6 md:p-7">
+                      <h2 className="font-display text-xl md:text-2xl text-white mb-1">{member.name}</h2>
+
+                      <div className="flex items-center gap-1.5 text-xs text-white/60 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                         See more
                         <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
                       </div>

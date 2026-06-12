@@ -98,6 +98,23 @@ export default function PastProjects() {
                         dangerouslySetInnerHTML={{ __html: project.description }}
                       />
 
+                      {project.logos && project.logos.length > 0 && (
+                        <div className="flex flex-wrap items-center gap-3 mb-5">
+                          <span className="text-[9px] uppercase tracking-widest text-muted-foreground/50 mr-1">
+                            Partners
+                          </span>
+                          {project.logos.map((logo) => (
+                            <img
+                              key={logo.src}
+                              src={logo.src}
+                              alt={logo.alt}
+                              className="h-7 md:h-8 w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                              loading="lazy"
+                            />
+                          ))}
+                        </div>
+                      )}
+
                       {project.impacts && (
                         <div className="grid grid-cols-2 gap-3 mb-5">
                           {project.impacts.map((imp) => (

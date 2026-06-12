@@ -1,3 +1,8 @@
+export interface PartnerLogo {
+  src: string;
+  alt: string;
+}
+
 export interface PastProject {
   name: string;
   subtitle: string;
@@ -6,6 +11,8 @@ export interface PastProject {
   tags: string[];
   category: "Education" | "Youth Development" | "Governance & Innovation" | "International Engagement";
   impacts?: { value: string; label: string }[];
+  logos?: PartnerLogo[];
+  projectUrl?: string;
 }
 
 export const pastProjects: PastProject[] = [
@@ -17,6 +24,13 @@ export const pastProjects: PastProject[] = [
     period: "2023 &mdash; 2024",
     tags: ["Basic Literacy", "Parent Engagement", "Early Childhood"],
     category: "Education",
+    projectUrl: "https://siklab.org.ph/advanceing-basic-education-philippines",
+    logos: [
+      { src: "/partners/usaid.png", alt: "USAID" },
+      { src: "/partners/deped.png", alt: "Department of Education" },
+      { src: "/partners/the-asia-foundation.png", alt: "The Asia Foundation" },
+      { src: "/partners/rti.png", alt: "RTI International" },
+    ],
     impacts: [
       { value: "25", label: "Communities engaged" },
       { value: "3,000+", label: "Books donated" },
@@ -32,6 +46,17 @@ export const pastProjects: PastProject[] = [
     period: "2020 &mdash; 2022",
     tags: ["COVID-19 Response", "Literacy", "Community Development"],
     category: "Education",
+    projectUrl: "https://siklab.org.ph/bayanihan-eskwela/",
+    logos: [
+      { src: "/partners/who.png", alt: "World Health Organization" },
+      { src: "/partners/office-of-the-president.png", alt: "Office of the President" },
+      { src: "/partners/roddenberry.png", alt: "Roddenberry Foundation" },
+      { src: "/partners/un-foundation.png", alt: "United Nations Foundation" },
+      { src: "/partners/world-scouts.png", alt: "World Organization of the Scout Movement" },
+      { src: "/partners/ifrc.png", alt: "IFRC" },
+      { src: "/partners/duke-of-edinburgh.png", alt: "The Duke of Edinburgh's International Award" },
+      { src: "/partners/global-youth-mobilization.png", alt: "Global Youth Mobilization" },
+    ],
     impacts: [
       { value: "5,000+", label: "Students supported" },
       { value: "2,000+", label: "Non-readers impacted" },
@@ -47,6 +72,10 @@ export const pastProjects: PastProject[] = [
     period: "2022 &mdash; 2024",
     tags: ["Innovation Challenge", "Regional", "Digital Literacy"],
     category: "Youth Development",
+    logos: [
+      { src: "/partners/usaid.png", alt: "USAID" },
+      { src: "/partners/asean.png", alt: "ASEAN" },
+    ],
     impacts: [
       { value: "6", label: "Teams awarded seed grants" },
       { value: "4+", label: "Virtual masterclass series" },
@@ -62,6 +91,10 @@ export const pastProjects: PastProject[] = [
     period: "2023 &mdash; 2024",
     tags: ["Fellowship", "Mentorship", "Industry 4.0"],
     category: "Youth Development",
+    logos: [
+      { src: "/partners/un-foundation.png", alt: "United Nations Foundation" },
+      { src: "/partners/nyc.png", alt: "National Youth Commission" },
+    ],
     impacts: [
       { value: "10", label: "Weeks intensive" },
       { value: "Multi-sector", label: "Industry mentors" },
@@ -76,6 +109,13 @@ export const pastProjects: PastProject[] = [
     period: "2018 &mdash; 2023",
     tags: ["Youth Summits", "Civic Participation", "Mentorship"],
     category: "Youth Development",
+    projectUrl: "https://siklab.org.ph/local-youth-assembly",
+    logos: [
+      { src: "/partners/office-of-the-president.png", alt: "Office of the President" },
+      { src: "/partners/dilg.png", alt: "DILG" },
+      { src: "/partners/usaid.png", alt: "USAID" },
+      { src: "/partners/the-asia-foundation.png", alt: "The Asia Foundation" },
+    ],
   },
   {
     name: "Model City Council",
@@ -85,6 +125,10 @@ export const pastProjects: PastProject[] = [
     period: "2019 &mdash; 2023",
     tags: ["Governance", "Innovation Ecosystem", "Public-Private Partnership"],
     category: "Governance & Innovation",
+    logos: [
+      { src: "/partners/dilg.png", alt: "DILG" },
+      { src: "/partners/usaid.png", alt: "USAID" },
+    ],
     impacts: [
       { value: "Multi-city", label: "Government partners" },
       { value: "Seed funded", label: "Best teams" },
@@ -99,6 +143,11 @@ export const pastProjects: PastProject[] = [
     period: "2017 &mdash; 2024",
     tags: ["United Nations", "Global Leadership", "SDGs"],
     category: "International Engagement",
+    projectUrl: "https://siklab.org.ph/the-youth-assembly/",
+    logos: [
+      { src: "/partners/united-nations.png", alt: "United Nations" },
+      { src: "/partners/world-bank.png", alt: "World Bank" },
+    ],
     impacts: [
       { value: "200+", label: "Delegates fielded" },
       { value: "Bi-annual", label: "UN General Assembly" },
@@ -113,6 +162,13 @@ export const pastProjects: PastProject[] = [
     period: "2018 &mdash; 2023",
     tags: ["Youth Leadership", "Asia-Pacific", "Cross-Border"],
     category: "International Engagement",
+    projectUrl: "https://siklab.org.ph/youth-leadership-summit",
+    logos: [
+      { src: "/partners/osg.png", alt: "Office of the Solicitor General" },
+      { src: "/partners/resolute.png", alt: "Resolute" },
+      { src: "/partners/asean.png", alt: "ASEAN" },
+      { src: "/partners/nyc.png", alt: "National Youth Commission" },
+    ],
     impacts: [
       { value: "5,000+", label: "Students" },
       { value: "12", label: "Countries" },
