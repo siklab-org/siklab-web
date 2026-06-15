@@ -59,7 +59,7 @@ const projects = [
     tagline: "Entrepreneurial action for others.",
     description:
       "A team-based experiential learning platform that catalyzes students to take entrepreneurial action for their communities. Operating across partner universities nationwide, Enactus Philippines supports student-led ventures spanning tech-enabled innovation, climate-positive enterprise, and community-inclusive projects &mdash; co-built with farmers, MSMEs, and out-of-school youth across Luzon, Visayas, and Mindanao.",
-    url: "https://dev.app.enactus.ph",
+    url: "https://enactus.ph",
     logoSrc: "/enactus-logo.webp",
     logoAlt: "Enactus Philippines logo",
     metrics: [
