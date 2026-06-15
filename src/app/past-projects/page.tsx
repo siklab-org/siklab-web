@@ -69,7 +69,7 @@ export default function PastProjects() {
                     <motion.article
                       key={project.name}
                       variants={fadeUp}
-                      className="group relative rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/[0.02] to-transparent p-6 md:p-8 transition-all duration-500 hover:border-amber-600/25 hover:from-amber-500/[0.04]"
+                      className="group relative rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/[0.02] to-transparent p-6 md:p-8 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_32px_-8px_rgba(217,119,6,0.12)] hover:border-amber-600/25 hover:from-amber-500/[0.04]"
                     >
                       {project.impacts && (
                         <div aria-hidden className="absolute top-0 right-0 p-6 md:p-8 text-right opacity-[0.03] font-display text-6xl md:text-7xl font-bold leading-none text-amber-700 select-none pointer-events-none">
@@ -138,7 +138,7 @@ export default function PastProjects() {
                           {project.impacts.map((imp) => (
                             <div
                               key={imp.label}
-                              className="rounded-xl bg-amber-50/60 border border-amber-200/50 p-3 md:p-4"
+                              className="rounded-xl bg-amber-50/60 border border-amber-200/50 p-3 md:p-4 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_4px_16px_-4px_rgba(217,119,6,0.12)] hover:border-amber-300/60"
                             >
                               <p className="font-display text-lg md:text-xl font-semibold text-amber-800">
                                 {imp.value}

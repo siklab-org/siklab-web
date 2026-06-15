@@ -37,7 +37,7 @@ export default function Areas() {
               whileInView="animate"
               viewport={{ once: true, margin: "-60px" }}
               variants={{ animate: { transition: { staggerChildren: 0.08 } } }}
-              className="group rounded-2xl border border-foreground/10 bg-gradient-to-br from-transparent to-foreground/[0.02] p-6 md:p-8 transition-all duration-300 hover:border-primary/20 hover:from-primary/[0.02]"
+              className="group relative rounded-2xl border border-foreground/10 bg-gradient-to-br from-transparent to-foreground/[0.02] p-6 md:p-8 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_32px_-8px_hsl(var(--primary)/0.15)] hover:border-primary/20 hover:from-primary/[0.02] before:absolute before:inset-y-4 before:left-0 before:w-0.5 before:rounded-r before:bg-primary before:scale-y-0 before:transition-transform before:duration-300 group-hover:before:scale-y-100"
             >
               <motion.div variants={fadeUp} className="flex items-start justify-between mb-3">
                 <h2 className="font-display text-2xl text-foreground">{area.title}</h2>

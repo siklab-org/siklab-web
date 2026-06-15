@@ -49,6 +49,7 @@ const projects = [
       metricValue: "text-white",
       metricLabel: "text-neutral-400",
       metricGradient: "from-[#0060ba]/10 to-[#8561c5]/10",
+      metricGlow: "0,96,186",
     },
   },
   {
@@ -80,6 +81,7 @@ const projects = [
       metricValue: "text-[#1a1a1a]",
       metricLabel: "text-[#EEAD2E]/80",
       metricGradient: "from-[#EEAD2E]/15 to-[#EEAD2E]/5",
+      metricGlow: "238,173,46",
       brand: enactusBrand,
     },
   },
@@ -269,7 +271,17 @@ export default function Projects() {
                   {project.metrics.map((m, idx) => (
                     <div
                       key={idx}
-                      className={`rounded-2xl p-5 md:p-6 bg-gradient-to-br border ${project.theme.metricGradient} ${project.theme.metricCard}`}
+                      className={`rounded-2xl p-5 md:p-6 bg-gradient-to-br border transition-all duration-300 ease-out hover:-translate-y-1 ${project.theme.metricGradient} ${project.theme.metricCard}`}
+                      style={{
+                        boxShadow: `0 1px 2px rgba(${project.theme.metricGlow},0.04), 0 4px 8px rgba(${project.theme.metricGlow},0.04), 0 12px 32px -8px rgba(${project.theme.metricGlow},0.06)`,
+                        transition: "box-shadow 0.3s ease-out, transform 0.3s ease-out",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = `0 1px 2px rgba(${project.theme.metricGlow},0.04), 0 4px 8px rgba(${project.theme.metricGlow},0.04), 0 16px 48px -8px rgba(${project.theme.metricGlow},0.2), 0 0 0 1px rgba(${project.theme.metricGlow},0.15)`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = `0 1px 2px rgba(${project.theme.metricGlow},0.04), 0 4px 8px rgba(${project.theme.metricGlow},0.04), 0 12px 32px -8px rgba(${project.theme.metricGlow},0.06)`;
+                      }}
                     >
                       <p
                         className={`font-display text-2xl md:text-3xl font-semibold ${project.theme.metricValue}`}
