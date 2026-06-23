@@ -72,16 +72,27 @@ function MemberCard({
               <h2 className="font-display text-lg md:text-xl text-foreground leading-tight">
                 {member.name}
               </h2>
-              {member.title && (
-                <p className="text-xs text-muted-foreground/70 mt-1.5 opacity-0 -translate-y-1.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                  {member.title}
-                </p>
-              )}
-              {!member.title && member.organization && (
-                <p className="text-xs text-muted-foreground/50 mt-1.5 opacity-0 -translate-y-1.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                  {member.organization}
-                </p>
-              )}
+              <div className="mt-1.5 space-y-1 opacity-0 -translate-y-1.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                {member.title && (
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground/70 font-medium">
+                    {member.title}
+                  </p>
+                )}
+                {member.organization && (
+                  <div className="flex items-center gap-2">
+                    {member.companyLogoSrc && (
+                      <img
+                        src={member.companyLogoSrc}
+                        alt={member.organization}
+                        className="h-5 w-auto object-contain grayscale opacity-60"
+                      />
+                    )}
+                    <p className="text-[11px] text-muted-foreground/50">
+                      {member.organization}
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -139,9 +150,18 @@ function MemberCard({
                     </p>
                   )}
                   {member.organization && (
-                    <p className="text-sm text-muted-foreground/60">
-                      {member.organization}
-                    </p>
+                    <div className="flex items-center gap-2 mt-1">
+                      {member.companyLogoSrc && (
+                        <img
+                          src={member.companyLogoSrc}
+                          alt={member.organization}
+                          className="h-6 w-auto object-contain"
+                        />
+                      )}
+                      <p className="text-sm text-muted-foreground/60">
+                        {member.organization}
+                      </p>
+                    </div>
                   )}
                 </div>
               )}

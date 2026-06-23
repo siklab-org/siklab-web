@@ -147,7 +147,7 @@ export default function PastProjectPage() {
                         alt={`${project.name} — event photo ${i + 1}`}
                         className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-[1.02]"
                         loading={i === 0 ? "eager" : "lazy"}
-                        fetchpriority={i === 0 ? "high" : undefined}
+                        fetchPriority={i === 0 ? "high" : undefined}
                         decoding="async"
                       />
                       <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-foreground/5 pointer-events-none" />

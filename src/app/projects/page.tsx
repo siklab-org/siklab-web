@@ -2,8 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Space_Grotesk, Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -17,7 +30,7 @@ const scaleIn = {
   animate: { scale: 1, opacity: 1, transition: { duration: 0.7, ease } },
 };
 
-const enactusBrand = "lab(74.3059% 21.7583 74.0995)";
+const enactusBrand = "#EEAD2E";
 
 const projects = [
   {
@@ -36,6 +49,7 @@ const projects = [
       { value: "57", label: "Fellows across Asia" },
       { value: "1", label: "Annual Asia-wide summit" },
     ],
+    displayFont: spaceGrotesk.className,
     theme: {
       section: "bg-[#050505] text-white border-white/10",
       number: "text-white/[0.03]",
@@ -45,8 +59,8 @@ const projects = [
       tagline: "text-white/80",
       desc: "text-neutral-400",
       btn: "bg-[#0060ba] text-white hover:bg-[#336fcf]",
-      metricCard: "bg-white/5 border-white/10",
-      metricValue: "text-white",
+      metricCard: "bg-white/[0.06] backdrop-blur-sm border-white/10",
+      metricValue: "text-transparent bg-clip-text bg-gradient-to-r from-[#0060ba] via-[#8561c5] to-[#c671af]",
       metricLabel: "text-neutral-400",
       metricGradient: "from-[#0060ba]/10 to-[#8561c5]/10",
       metricGlow: "0,96,186",
@@ -68,20 +82,21 @@ const projects = [
       { value: "60,000+", label: "Filipino students" },
       { value: "15", label: "Years of impact" },
     ],
+    displayFont: montserrat.className,
     theme: {
-      section: "bg-transparent",
-      number: "text-foreground/[0.02]",
-      borderAccent: "border-l-[#EEAD2E]/60",
-      label: "text-[#EEAD2E]",
-      name: "text-foreground",
-      tagline: "text-foreground/85",
-      desc: "text-muted-foreground",
+      section: "bg-gradient-to-br from-[#fafaf9] via-white to-[#fffbeb] border-[#EEAD2E]/20",
+      number: "text-[#EEAD2E]/[0.04]",
+      borderAccent: "border-l-[#0D8546]",
+      label: "text-[#0D8546]",
+      name: "text-[#1a1a1a]",
+      tagline: "text-[#1a1a1a]/80",
+      desc: "text-[#555]",
       btn: "text-white hover:opacity-90",
-      metricCard: "border-[#EEAD2E]/30",
-      metricValue: "text-[#1a1a1a]",
+      metricCard: "border-[#EEAD2E]/30 bg-white shadow-sm",
+      metricValue: "text-[#0D8546]",
       metricLabel: "text-[#EEAD2E]/80",
-      metricGradient: "from-[#EEAD2E]/15 to-[#EEAD2E]/5",
-      metricGlow: "238,173,46",
+      metricGradient: "from-[#0D8546]/10 to-[#EEAD2E]/10",
+      metricGlow: "13,133,70",
       brand: enactusBrand,
     },
   },
@@ -209,37 +224,37 @@ export default function Projects() {
 
           <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-24">
             <div className="grid md:grid-cols-12 gap-10 md:gap-16">
-              <motion.div
-                variants={fadeUp}
-                className={`md:col-span-7 space-y-6 ${i % 2 === 1 ? "md:order-2" : ""}`}
-              >
-                <div
-                  className={`pl-5 border-l-2 ${project.theme.borderAccent}`}
-                >
-                  <Image
-                    src={project.logoSrc}
-                    alt={project.logoAlt}
-                    width={140}
-                    height={56}
-                    className="h-10 md:h-14 w-auto object-contain mb-5"
-                  />
-                  <div className="mb-4">
-                    <p
-                      className={`text-xs uppercase tracking-[0.25em] ${project.theme.label}`}
-                    >
-                      Flagship Initiative
-                    </p>
-                    <h2
-                      className={`font-display text-3xl md:text-4xl ${project.theme.name}`}
-                    >
-                      {project.name}
-                    </h2>
-                  </div>
-                  <p
-                    className={`text-lg font-medium italic leading-snug font-display mb-4 ${project.theme.tagline}`}
+                  <motion.div
+                    variants={fadeUp}
+                    className={`md:col-span-7 space-y-6 ${i % 2 === 1 ? "md:order-2" : ""}`}
                   >
-                    &ldquo;{project.tagline}&rdquo;
-                  </p>
+                    <div
+                      className={`pl-5 border-l-2 ${project.theme.borderAccent}`}
+                    >
+                      <Image
+                        src={project.logoSrc}
+                        alt={project.logoAlt}
+                        width={140}
+                        height={56}
+                        className="h-10 md:h-14 w-auto object-contain mb-5"
+                      />
+                      <div className="mb-4">
+                        <p
+                          className={`text-xs uppercase tracking-[0.25em] ${project.theme.label}`}
+                        >
+                          Flagship Initiative
+                        </p>
+                        <h2
+                          className={`${project.displayFont || "font-display"} text-3xl md:text-4xl ${project.theme.name}`}
+                        >
+                          {project.name}
+                        </h2>
+                      </div>
+                      <p
+                        className={`text-lg font-medium italic leading-snug ${project.displayFont || "font-display"} mb-4 ${project.theme.tagline}`}
+                      >
+                        &ldquo;{project.tagline}&rdquo;
+                      </p>
                   <p
                     className={`leading-relaxed ${project.theme.desc}`}
                     dangerouslySetInnerHTML={{ __html: project.description }}
@@ -284,7 +299,7 @@ export default function Projects() {
                       }}
                     >
                       <p
-                        className={`font-display text-2xl md:text-3xl font-semibold ${project.theme.metricValue}`}
+                        className={`${project.displayFont || "font-display"} text-2xl md:text-3xl font-semibold ${project.theme.metricValue}`}
                       >
                         {m.value}
                       </p>
