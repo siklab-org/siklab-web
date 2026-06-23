@@ -90,6 +90,7 @@ export default function PastProjects() {
                                 src={project.projectLogo}
                                 alt={`${project.name} logo`}
                                 className="w-full h-full object-contain p-1.5"
+                                decoding="async"
                               />
                             </div>
                           </div>
@@ -132,6 +133,7 @@ export default function PastProjects() {
                                     alt={logo.alt}
                                     className="max-h-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
                                     loading="lazy"
+                                    decoding="async"
                                   />
                                 </div>
                               ))}
