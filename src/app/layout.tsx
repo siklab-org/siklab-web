@@ -1,9 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import dynamic from "next/dynamic";
 import { Toaster } from "sonner";
 import { SiteHeader } from "@/src/components/SiteHeader";
 import { SiteFooter } from "@/src/components/SiteFooter";
 import "./globals.css";
+
+const LoadingScreen = dynamic(
+  () =>
+    import("@/src/components/LoadingScreen").then((m) => m.LoadingScreen)
+);
 
 const fraunces = Fraunces({
   variable: "--font-display",
@@ -88,15 +94,17 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/hero.webp" />
       </head>
       <body className="min-h-full flex flex-col">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            style: { fontFamily: "var(--font-sans)" },
-          }}
-        />
+        <LoadingScreen>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              style: { fontFamily: "var(--font-sans)" },
+            }}
+          />
+        </LoadingScreen>
       </body>
     </html>
   );

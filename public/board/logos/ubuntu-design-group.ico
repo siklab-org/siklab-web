@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Ubuntu Home - Design Your Dream Home with AI | Home Visualization Platform</title>
+    <meta name="description" content="Transform your dream home vision into reality with AI-powered visualization, accurate cost estimates, and professional architectural plans. Get instant 3D renders and connect with local South African builders.">
+    <meta name="keywords" content="home design, AI visualization, construction cost estimate, South Africa, dream home, architectural plans, house builder">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ubuntudesigngroup.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ubuntudesigngroup.com/">
+    <meta property="og:title" content="Ubuntu Home - Design Your Dream Home with AI">
+    <meta property="og:description" content="Get instant AI-powered home visualizations, accurate cost estimates, and professional architectural plans for your dream home in South Africa.">
+    <meta property="og:image" content="https://ubuntudesigngroup.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ubuntudesigngroup.com/">
+    <meta property="twitter:title" content="Ubuntu Home - Design Your Dream Home with AI">
+    <meta property="twitter:description" content="Get instant AI-powered home visualizations, accurate cost estimates, and professional architectural plans for your dream home in South Africa.">
+    <meta property="twitter:image" content="https://ubuntudesigngroup.com/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Microsoft Clarity for heatmaps and session recordings -->
+    <!-- To enable Clarity, create a project at https://clarity.microsoft.com/ and replace YOUR_PROJECT_ID below -->
+    <script type="text/javascript">
+        // (function(c,l,a,r,i,t,y){
+        //     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        //     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        //     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        // })(window, document, "clarity", "script", "YOUR_PROJECT_ID");
+        
+        // Uncomment above and replace YOUR_PROJECT_ID with your actual Clarity project ID
+        // This will provide heatmaps and session recordings for user behavior analysis
+    </script>
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Ubuntu Home",
+      "description": "AI-powered home design visualization platform for South African families",
+      "url": "https://ubuntuhome.co.za",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "750",
+        "priceCurrency": "ZAR"
+      }
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-B08ifreW.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-qwCkVTVR.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  </body>
+</html>

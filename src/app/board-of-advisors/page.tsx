@@ -72,14 +72,14 @@ function MemberCard({
               <h2 className="font-display text-lg md:text-xl text-foreground leading-tight">
                 {member.name}
               </h2>
-              <div className="mt-1.5 space-y-1 opacity-0 -translate-y-1.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+              <div className="mt-1.5 space-y-1">
                 {member.title && (
                   <p className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground/70 font-medium">
                     {member.title}
                   </p>
                 )}
                 {member.organization && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 mt-1">
                     {member.companyLogoSrc && (
                       <img
                         src={member.companyLogoSrc}
