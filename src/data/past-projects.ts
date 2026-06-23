@@ -118,6 +118,8 @@ export const pastProjects: PastProject[] = [
     images: [
       "/past-projects/hack-the-future-1.svg",
       "/past-projects/hack-the-future-2.svg",
+      "/past-projects/hack-the-future-3.jpg",
+      "/past-projects/hack-the-future-4.jpg",
     ],
   },
   {
@@ -174,6 +176,8 @@ export const pastProjects: PastProject[] = [
     images: [
       "/past-projects/local-youth-assembly-1.svg",
       "/past-projects/local-youth-assembly-2.svg",
+      "/past-projects/local-youth-assembly-3.jpg",
+      "/past-projects/local-youth-assembly-4.jpg",
     ],
   },
   {
