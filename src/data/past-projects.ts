@@ -4,6 +4,7 @@ export interface PartnerLogo {
 }
 
 export interface PastProject {
+  slug: string;
   name: string;
   subtitle: string;
   description: string;
@@ -18,10 +19,12 @@ export interface PastProject {
   logos?: PartnerLogo[];
   projectUrl?: string;
   projectLogo?: string;
+  images?: string[];
 }
 
 export const pastProjects: PastProject[] = [
   {
+    slug: "abc-plus-project",
     name: "ABC+ Project",
     subtitle: "Early Grade Literacy and Parent Engagement",
     description:
@@ -42,8 +45,13 @@ export const pastProjects: PastProject[] = [
       { value: "600+", label: "Parents trained and organized" },
       { value: "5,000", label: "Children in literacy training" },
     ],
+    images: [
+      "/abc-plus/DSC_0125.JPG",
+      "/abc-plus/DSC_0185.JPG",
+    ],
   },
   {
+    slug: "community-learning-hub",
     name: "Community Learning Hub",
     subtitle: "Pandemic-Response Tutorial & Literacy Program",
     description:
@@ -81,8 +89,14 @@ export const pastProjects: PastProject[] = [
       { value: "20", label: "Communities served" },
       { value: "10,000+", label: "Students served annually" },
     ],
+    images: [
+      "/past-projects/community-learning-hub-1.svg",
+      "/past-projects/community-learning-hub-2.svg",
+      "/past-projects/community-learning-hub-3.svg",
+    ],
   },
   {
+    slug: "hack-the-future",
     name: "Hack the Future",
     subtitle: "Young Leaders for Asia Challenge",
     description:
@@ -101,8 +115,13 @@ export const pastProjects: PastProject[] = [
       { value: "Multi-country", label: "ASEAN participation" },
       { value: "$50K", label: "Funding pool" },
     ],
+    images: [
+      "/past-projects/hack-the-future-1.svg",
+      "/past-projects/hack-the-future-2.svg",
+    ],
   },
   {
+    slug: "pathways-fellowship",
     name: "Pathways Fellowship",
     subtitle: "10-Week Venture Launch Intensive",
     description:
@@ -123,8 +142,13 @@ export const pastProjects: PastProject[] = [
       { value: "Multi-sector", label: "Industry mentors" },
       { value: "Venture Launch", label: "Capstone projects" },
     ],
+    images: [
+      "/past-projects/pathways-fellowship-1.svg",
+      "/past-projects/pathways-fellowship-2.svg",
+    ],
   },
   {
+    slug: "local-youth-assembly",
     name: "Local Youth Assembly",
     subtitle: "Regional Summits for Grassroots Leaders",
     description:
@@ -147,8 +171,13 @@ export const pastProjects: PastProject[] = [
       { value: "1000+", label: "Youth candidates trained" },
       { value: "10", label: "Regional summits held" },
     ],
+    images: [
+      "/past-projects/local-youth-assembly-1.svg",
+      "/past-projects/local-youth-assembly-2.svg",
+    ],
   },
   {
+    slug: "model-city-council",
     name: "Model City Council",
     subtitle: "Youth-Led Innovation Ecosystems for Local Government",
     description:
@@ -173,8 +202,14 @@ export const pastProjects: PastProject[] = [
         label: "In direct beneficiaries through various ventures",
       },
     ],
+    images: [
+      "/model-city-council/BOB_0112.JPG",
+      "/model-city-council/BOB_0161.JPG",
+      "/model-city-council/BOB_5040.JPG",
+    ],
   },
   {
+    slug: "un-youth-assembly",
     name: "UN Youth Assembly",
     subtitle: "Delegates to the United Nations General Assembly",
     description:
@@ -192,8 +227,13 @@ export const pastProjects: PastProject[] = [
       { value: "Bi-annual", label: "UN General Assembly" },
       { value: "Global", label: "Network of leaders" },
     ],
+    images: [
+      "/un-youth-assembly/delegation-1.jpg",
+      "/un-youth-assembly/delegation-2.jpg",
+    ],
   },
   {
+    slug: "aci-youth-leader-summit",
     name: "ACI Youth Leader Summit",
     subtitle: "Cross-Border Youth Leadership Development",
     description:
@@ -211,6 +251,10 @@ export const pastProjects: PastProject[] = [
     impacts: [
       { value: "5,000+", label: "Students" },
       { value: "12", label: "Countries" },
+    ],
+    images: [
+      "/past-projects/aci-youth-leader-summit-1.svg",
+      "/past-projects/aci-youth-leader-summit-2.svg",
     ],
   },
 ];

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e40af" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="fg2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#bfdbfe" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#bfdbfe" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)" rx="12" />
+  <rect width="800" height="600" fill="url(#fg2)" rx="12" />
+  <path d="M0,600 L800,0" fill="none" stroke="#bfdbfe" stroke-width="2" opacity="0.2" />
+  <path d="M0,0 L800,600" fill='none' stroke='#bfdbfe' stroke-width='1.5' opacity='0.15' />
+  <circle cx="100" cy="100" r="150" fill="#bfdbfe" opacity="0.05" />
+  <circle cx="700" cy="500" r="200" fill="#bfdbfe" opacity="0.06" />
+  <rect x="0" y="0" width="800" height="600" fill="url(#bg2)" opacity="0.03" rx="12" />
+  <text x="400" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#bfdbfe" opacity="0.95">Local Youth Assembly</text>
+  <text x="400" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#bfdbfe" opacity="0.7">Panel Discussion</text>
+  <text x="400" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#bfdbfe" opacity="0.35">EVENT PHOTO PLACEHOLDER</text>
+  <rect x="300" y="360" width="200" height="1" fill="#bfdbfe" opacity="0.2" rx="1" />
+</svg>
