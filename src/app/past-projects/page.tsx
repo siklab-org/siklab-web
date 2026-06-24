@@ -75,7 +75,7 @@ export default function PastProjects() {
                     >
                       <motion.article
                         variants={fadeUp}
-                        className="group relative cursor-pointer rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/[0.02] to-transparent p-6 md:p-8 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_32px_-8px_rgba(217,119,6,0.12)] hover:border-amber-600/25 hover:from-amber-500/[0.04]"
+                        className="group relative cursor-pointer rounded-2xl border border-foreground/10 bg-gradient-to-br from-foreground/[0.02] to-transparent p-6 md:p-8 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_32px_-8px_rgba(217,119,6,0.12)] hover:border-amber-600/25 hover:from-amber-500/[0.04] flex flex-col h-full"
                       >
                         {project.impacts && (
                           <div aria-hidden className="absolute top-0 right-0 p-6 md:p-8 text-right opacity-[0.03] font-display text-6xl md:text-7xl font-bold leading-none text-amber-700 select-none pointer-events-none">
@@ -84,12 +84,12 @@ export default function PastProjects() {
                         )}
 
                         {project.projectLogo && (
-                          <div className="flex items-center gap-3 mb-5">
-                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-amber-100/80 border border-amber-200/60 flex items-center justify-center overflow-hidden flex-shrink-0">
+                          <div className="flex items-center mb-5">
+                            <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center flex-shrink-0">
                               <img
                                 src={project.projectLogo}
                                 alt={`${project.name} logo`}
-                                className="w-full h-full object-contain p-1.5"
+                                className="w-full h-full object-contain"
                                 decoding="async"
                               />
                             </div>
@@ -170,7 +170,7 @@ export default function PastProjects() {
                           ))}
                         </div>
 
-                        <span className="mt-4 inline-flex items-center gap-1 text-[10px] uppercase tracking-widest text-amber-700/50 group-hover:text-amber-700 transition-colors">
+                        <span className="mt-auto pt-4 inline-flex items-center gap-1 text-[10px] uppercase tracking-widest text-amber-700/50 group-hover:text-amber-700 transition-colors">
                           View details
                           <ArrowUpRight className="w-3 h-3" />
                         </span>

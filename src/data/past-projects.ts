@@ -32,6 +32,7 @@ export const pastProjects: PastProject[] = [
     period: "2023 &mdash; 2024",
     tags: ["Basic Literacy", "Parent Engagement", "Early Childhood"],
     category: "Education",
+    projectLogo: "/past-projects/logos/abc-plus.png",
     projectUrl: "https://siklab.org.ph/advanceing-basic-education-philippines",
     logos: [
       { src: "/partners/usaid.png", alt: "USAID" },
@@ -59,6 +60,7 @@ export const pastProjects: PastProject[] = [
     period: "2020 &mdash; 2022",
     tags: ["COVID-19 Response", "Literacy", "Community Development"],
     category: "Education",
+    projectLogo: "/past-projects/logos/community-learning-hub.png",
     projectUrl: "https://siklab.org.ph/bayanihan-eskwela/",
     logos: [
       { src: "/partners/who.png", alt: "World Health Organization" },
@@ -90,9 +92,9 @@ export const pastProjects: PastProject[] = [
       { value: "10,000+", label: "Students served annually" },
     ],
     images: [
-      "/past-projects/community-learning-hub-1.svg",
-      "/past-projects/community-learning-hub-2.svg",
-      "/past-projects/community-learning-hub-3.svg",
+      "/past-projects/community-learning-hub-1.jpg",
+      "/past-projects/community-learning-hub-2.jpg",
+      "/past-projects/community-learning-hub-3.jpg",
     ],
   },
   {
@@ -116,8 +118,6 @@ export const pastProjects: PastProject[] = [
       { value: "$50K", label: "Funding pool" },
     ],
     images: [
-      "/past-projects/hack-the-future-1.svg",
-      "/past-projects/hack-the-future-2.svg",
       "/past-projects/hack-the-future-3.jpg",
       "/past-projects/hack-the-future-4.jpg",
     ],
@@ -145,8 +145,8 @@ export const pastProjects: PastProject[] = [
       { value: "Venture Launch", label: "Capstone projects" },
     ],
     images: [
-      "/past-projects/pathways-fellowship-1.svg",
-      "/past-projects/pathways-fellowship-2.svg",
+      "/past-projects/pathways-fellowship-1.jpg",
+      "/past-projects/pathways-fellowship-2.jpg",
     ],
   },
   {
@@ -174,8 +174,6 @@ export const pastProjects: PastProject[] = [
       { value: "10", label: "Regional summits held" },
     ],
     images: [
-      "/past-projects/local-youth-assembly-1.svg",
-      "/past-projects/local-youth-assembly-2.svg",
       "/past-projects/local-youth-assembly-3.jpg",
       "/past-projects/local-youth-assembly-4.jpg",
     ],
@@ -189,6 +187,7 @@ export const pastProjects: PastProject[] = [
     period: "2016 &mdash; Present",
     tags: ["Governance", "Innovation Ecosystem", "Public-Private Partnership"],
     category: "Governance & Innovation",
+    projectLogo: "/past-projects/logos/model-city-council.png",
     logos: [
       { src: "/partners/dilg.png", alt: "DILG" },
       { src: "/partners/usaid.png", alt: "USAID" },
@@ -221,6 +220,7 @@ export const pastProjects: PastProject[] = [
     period: "2016 &mdash; 2019",
     tags: ["United Nations", "Global Leadership", "SDGs"],
     category: "International Engagement",
+    projectLogo: "/past-projects/logos/un-youth-assembly.png",
     projectUrl: "https://siklab.org.ph/the-youth-assembly/",
     logos: [
       { src: "/partners/united-nations.png", alt: "United Nations" },
@@ -245,6 +245,7 @@ export const pastProjects: PastProject[] = [
     period: "2024",
     tags: ["Youth Leadership", "Asia-Pacific", "Cross-Border"],
     category: "International Engagement",
+    projectLogo: "/past-projects/logos/aci-youth-leader-summit.png",
     projectUrl: "https://siklab.org.ph/youth-leadership-summit",
     logos: [
       { src: "/partners/osg.png", alt: "Office of the Solicitor General" },
@@ -257,8 +258,9 @@ export const pastProjects: PastProject[] = [
       { value: "12", label: "Countries" },
     ],
     images: [
-      "/past-projects/aci-youth-leader-summit-1.svg",
-      "/past-projects/aci-youth-leader-summit-2.svg",
+      "/aci-youth-leader/aci-yl-1.jpg",
+      "/aci-youth-leader/aci-yl-2.jpg",
+      "/aci-youth-leader/aci-yl-3.jpg",
     ],
   },
 ];

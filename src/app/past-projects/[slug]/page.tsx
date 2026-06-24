@@ -109,6 +109,25 @@ export default function PastProjectPage() {
               </span>
             ))}
           </motion.div>
+
+          {project.logos && project.logos.length > 0 && (
+            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4 mt-8 pt-8 border-t border-foreground/10">
+              {project.logos.map((logo) => (
+                <div
+                  key={logo.src}
+                  className="h-8 md:h-10 flex items-center"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-h-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </motion.div>
+          )}
         </motion.div>
       </section>
 
@@ -145,7 +164,7 @@ export default function PastProjectPage() {
                       <img
                         src={src}
                         alt={`${project.name} — event photo ${i + 1}`}
-                        className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-[1.02]"
+                        className="aspect-[4/3] w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.02]"
                         loading={i === 0 ? "eager" : "lazy"}
                         fetchPriority={i === 0 ? "high" : undefined}
                         decoding="async"

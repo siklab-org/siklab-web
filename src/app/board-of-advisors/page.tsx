@@ -100,27 +100,29 @@ function MemberCard({
 
       <DialogContent
         hideCloseButton
-        className="w-[calc(100%-1rem)] max-w-3xl max-h-[80dvh] overflow-hidden p-0 gap-0 sm:rounded-2xl"
+        className="w-[calc(100%-1rem)] max-w-4xl p-0 gap-0 sm:rounded-2xl max-h-[90dvh] overflow-y-auto sm:overflow-hidden"
       >
         <DialogClose className="absolute right-3 top-3 z-30 flex items-center justify-center w-7 h-7 rounded-full border border-border/70 bg-background/95 text-muted-foreground/80 shadow-sm opacity-90 hover:opacity-100 hover:bg-background cursor-pointer transition-all duration-200">
           <X className="h-3.5 w-3.5" />
           <span className="sr-only">Close</span>
         </DialogClose>
 
-        <div className={`flex overflow-hidden ${member.imageSrc ? 'items-start' : 'items-stretch'}`}>
+        <div className="relative flex flex-col sm:flex-row items-stretch sm:items-start">
           {member.imageSrc ? (
-            <div className="hidden sm:block shrink-0 overflow-hidden bg-muted/30">
-              <img
+            <div className="w-full sm:w-72 md:w-96 shrink-0">
+              <Image
                 src={member.imageSrc}
                 alt={member.name}
-                className="max-h-[80dvh] w-auto max-w-[30vw] object-contain"
+                width={400}
+                height={500}
+                className="aspect-[4/5] w-full object-cover"
               />
             </div>
           ) : (
             <div
-              className={`hidden sm:flex w-48 shrink-0 self-stretch items-center justify-center bg-gradient-to-br ${member.color}`}
+              className={`w-full sm:w-72 md:w-96 shrink-0 aspect-[4/5] flex items-center justify-center bg-gradient-to-br ${member.color}`}
             >
-              <span className="font-display text-5xl font-bold text-white/15 select-none">
+              <span className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white/15 select-none">
                 {member.initials}
               </span>
             </div>
@@ -132,11 +134,11 @@ function MemberCard({
             variants={{
               animate: { transition: { staggerChildren: 0.06 } },
             }}
-            className="flex flex-col justify-center overflow-y-auto p-5 md:p-6 min-w-0 min-h-0 flex-1 self-stretch"
+            className="flex flex-col p-5 md:p-8 sm:absolute sm:inset-y-0 sm:right-0 sm:left-72 md:left-96 min-w-0 flex-1"
           >
-            <motion.div variants={fadeUp} className="space-y-4">
-              <div>
-                <DialogTitle className="font-display text-2xl md:text-3xl text-left leading-tight">
+            <motion.div variants={fadeUp} className="flex flex-col min-h-0 flex-1">
+              <div className="shrink-0">
+                <DialogTitle className="font-display text-2xl md:text-3xl lg:text-4xl text-left leading-tight">
                   {member.name}
                 </DialogTitle>
                 {(member.title || member.organization) && (
@@ -169,16 +171,16 @@ function MemberCard({
                 )}
               </div>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 my-4 shrink-0">
                 <span className="h-px flex-1 bg-border" />
                 <Quote className="w-4 h-4 text-amber-500/40 shrink-0" />
                 <span className="h-px flex-1 bg-border" />
               </div>
 
               <DialogDescription asChild>
-                <div>
+                <div className="overflow-y-auto min-h-0 flex-1">
                   {member.bio ? (
-                    <div className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+                    <div className="text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                       {member.bio}
                     </div>
                   ) : (
