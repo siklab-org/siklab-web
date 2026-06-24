@@ -85,11 +85,11 @@ export default function PastProjects() {
 
                         {project.projectLogo && (
                           <div className="flex items-center mb-5">
-                            <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center flex-shrink-0">
+                            <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center flex-shrink-0 overflow-hidden rounded-xl">
                               <img
                                 src={project.projectLogo}
                                 alt={`${project.name} logo`}
-                                className="w-full h-full object-contain"
+                                className="w-full h-full object-cover"
                                 decoding="async"
                               />
                             </div>
@@ -116,30 +116,6 @@ export default function PastProjects() {
                           className="text-sm text-muted-foreground leading-relaxed mb-5"
                           dangerouslySetInnerHTML={{ __html: project.description }}
                         />
-
-                        {project.logos && project.logos.length > 0 && (
-                          <div className="mb-5">
-                            <span className="block text-[9px] uppercase tracking-widest text-muted-foreground/50 mb-3">
-                              Partners
-                            </span>
-                            <div className="flex flex-wrap items-center gap-4">
-                              {project.logos.map((logo) => (
-                                <div
-                                  key={logo.src}
-                                  className="h-8 md:h-10 flex items-center"
-                                >
-                                  <img
-                                    src={logo.src}
-                                    alt={logo.alt}
-                                    className="max-h-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-                                    loading="lazy"
-                                    decoding="async"
-                                  />
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
 
                         {project.impacts && (
                           <div className="grid grid-cols-2 gap-3 mb-5">

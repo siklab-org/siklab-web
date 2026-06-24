@@ -106,6 +106,7 @@ export const pastProjects: PastProject[] = [
     period: "2025",
     tags: ["Innovation Challenge", "Regional", "Digital Literacy"],
     category: "Youth Development",
+    projectLogo: "/hack-the-future.png",
     logos: [
       { src: "/partners/asean.png", alt: "ASEAN" },
       { src: "/partners/european-union.png", alt: "European Union" },
@@ -131,6 +132,7 @@ export const pastProjects: PastProject[] = [
     period: "2023 &mdash; 2025",
     tags: ["Fellowship", "Mentorship", "Industry 4.0"],
     category: "Youth Development",
+    projectLogo: "/pathways.png",
     logos: [
       { src: "/partners/unicef.png", alt: "UNICEF" },
       { src: "/partners/ing.png", alt: "ING" },
@@ -158,6 +160,7 @@ export const pastProjects: PastProject[] = [
     period: "2023 &mdash; 2024",
     tags: ["Youth Summits", "Civic Participation", "Mentorship"],
     category: "Youth Development",
+    projectLogo: "/local-youth-assembly.png",
     projectUrl: "https://siklab.org.ph/local-youth-assembly",
     // USAID first, last asia foundation
     logos: [
