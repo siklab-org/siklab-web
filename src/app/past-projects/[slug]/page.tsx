@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { pastProjects } from "@/src/data/past-projects";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -68,19 +68,36 @@ export default function PastProjectPage() {
             </Link>
           </motion.div>
 
-          <motion.span
-            variants={fadeUp}
-            className="inline-block text-[10px] uppercase tracking-[0.3em] text-amber-700/70 mb-4"
-          >
-            {project.category}
-          </motion.span>
+          <div className="flex items-start justify-between gap-6">
+            <div className="min-w-0">
+              <motion.span
+                variants={fadeUp}
+                className="inline-block text-[10px] uppercase tracking-[0.3em] text-amber-700/70 mb-4"
+              >
+                {project.category}
+              </motion.span>
 
-          <motion.h1
-            variants={fadeUp}
-            className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.08]"
-          >
-            {project.name}
-          </motion.h1>
+              <motion.h1
+                variants={fadeUp}
+                className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.08]"
+              >
+                {project.name}
+              </motion.h1>
+            </div>
+
+            {project.projectLogo && (
+              <motion.div variants={fadeUp} className="flex-shrink-0">
+                <div className="h-24 md:h-32 lg:h-40 flex items-center justify-center">
+                  <img
+                    src={project.projectLogo}
+                    alt={`${project.name} logo`}
+                    className="h-full w-auto object-contain max-w-[160px] md:max-w-[200px] lg:max-w-[260px]"
+                    decoding="async"
+                  />
+                </div>
+              </motion.div>
+            )}
+          </div>
 
           <motion.p
             variants={fadeUp}
@@ -160,16 +177,17 @@ export default function PastProjectPage() {
                         : ""
                     }
                   >
-                    <div className="group relative rounded-2xl overflow-hidden border border-foreground/10 bg-gradient-to-br from-foreground/[0.02] to-transparent">
+                    <div className="group relative rounded-2xl overflow-hidden border border-foreground/10 bg-gradient-to-br from-foreground/[0.02] to-transparent shadow-lg shadow-black/10">
                       <img
                         src={src}
                         alt={`${project.name} — event photo ${i + 1}`}
-                        className="aspect-[4/3] w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.02]"
+                        className="aspect-[4/3] w-full h-full object-cover brightness-[0.92] saturate-[1.15] contrast-[1.12] transition-all duration-500 group-hover:scale-[1.02] group-hover:brightness-[1.02]"
                         loading={i === 0 ? "eager" : "lazy"}
                         fetchPriority={i === 0 ? "high" : undefined}
                         decoding="async"
                       />
-                      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-foreground/5 pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-amber-700/10 group-hover:ring-amber-600/25 pointer-events-none" />
                     </div>
                   </motion.div>
                 ))}
@@ -240,7 +258,7 @@ export default function PastProjectPage() {
         </>
       )}
 
-      {project.logos && project.logos.length > 0 && (
+      {project.articles && project.articles.length > 0 && (
         <>
           <div className="border-t border-foreground/10" />
           <section className="mx-auto max-w-6xl px-6 py-12 md:py-16">
@@ -254,30 +272,54 @@ export default function PastProjectPage() {
                 variants={fadeUp}
                 className="block text-[10px] uppercase tracking-[0.3em] text-amber-700/70 mb-6"
               >
-                Partners
+                Media & Coverage
               </motion.span>
-              <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
-                {project.logos.map((logo) => (
-                  <div
-                    key={logo.src}
-                    className="h-8 md:h-10 flex items-center"
+              <motion.div variants={fadeUp} className="space-y-4">
+                {project.articles.map((article, i) => (
+                  <a
+                    key={i}
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-4 p-4 rounded-xl border border-foreground/10 bg-gradient-to-br from-foreground/[0.02] to-transparent transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_16px_-4px_rgba(217,119,6,0.12)] hover:border-amber-600/25"
                   >
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="max-h-full w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
+                    {article.image && (
+                      <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 rounded-lg overflow-hidden border border-foreground/10">
+                        <img
+                          src={article.image}
+                          alt=""
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm md:text-base font-medium text-foreground group-hover:text-amber-700 transition-colors line-clamp-2">
+                        {article.title}
+                      </p>
+                      <div className="flex flex-wrap items-center gap-2 mt-1.5">
+                        <span className="text-[10px] uppercase tracking-[0.15em] text-amber-700/60">
+                          {article.source}
+                        </span>
+                        {article.date && (
+                          <>
+                            <span className="text-[10px] text-foreground/20">·</span>
+                            <span className="text-[10px] text-muted-foreground/50">
+                              {article.date}
+                            </span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 mt-1 flex-shrink-0 text-foreground/30 group-hover:text-amber-700 transition-colors" />
+                  </a>
                 ))}
               </motion.div>
             </motion.div>
           </section>
         </>
       )}
-
-
 
       <div className="border-t border-foreground/10" />
 

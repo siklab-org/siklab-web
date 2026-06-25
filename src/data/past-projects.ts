@@ -20,6 +20,7 @@ export interface PastProject {
   projectUrl?: string;
   projectLogo?: string;
   images?: string[];
+  articles?: { title: string; url: string; source: string; date?: string; image?: string }[];
 }
 
 export const pastProjects: PastProject[] = [
@@ -50,6 +51,27 @@ export const pastProjects: PastProject[] = [
       "/abc-plus/DSC_0125.JPG",
       "/abc-plus/DSC_0185.JPG",
     ],
+    articles: [
+      {
+        title: "New U.S. and Philippines Partnership to Boost Reading, Numeracy, and Socio-Emotional Learning for Filipino Students",
+        url: "https://ph.usembassy.gov/new-u-s-and-philippines-partnership-to-boost-reading-numeracy-and-socio-emotional-learning-for-filipino-students/",
+        source: "U.S. Embassy in the Philippines",
+        date: "2019",
+        image: "https://ph.usembassy.gov/wp-content/uploads/sites/24/2021/05/Partnership01.jpg",
+      },
+      {
+        title: "U.S. Announces Additional Php485 Million to Advance Basic Education in the Philippines",
+        url: "https://ph.usembassy.gov/u-s-announces-additional-php485-million-to-advance-basic-education-in-the-philippines/",
+        source: "U.S. Embassy in the Philippines",
+        date: "2024",
+        image: "https://ph.usembassy.gov/wp-content/uploads/sites/24/2024/10/10-03-2024-PR-U.S.-Announces-Additional-Php485-Million-to-Advance-Basic-Education-in-the-Philippines-2.jpg",
+      },
+      {
+        title: "ABC+: Advancing Basic Education",
+        url: "https://policy-hub.educationaboveall.org/solution/abc-advancing-basic-education",
+        source: "EAA Observatory",
+      },
+    ],
   },
   {
     slug: "community-learning-hub",
@@ -60,7 +82,7 @@ export const pastProjects: PastProject[] = [
     period: "2020 &mdash; 2022",
     tags: ["COVID-19 Response", "Literacy", "Community Development"],
     category: "Education",
-    projectLogo: "/past-projects/logos/community-learning-hub.png",
+    projectLogo: "/clh.png",
     projectUrl: "https://siklab.org.ph/bayanihan-eskwela/",
     logos: [
       { src: "/partners/who.png", alt: "World Health Organization" },
@@ -96,6 +118,25 @@ export const pastProjects: PastProject[] = [
       "/past-projects/community-learning-hub-2.jpg",
       "/past-projects/community-learning-hub-3.jpg",
     ],
+    articles: [
+      {
+        title: "Community Learning Hubs – Philippines",
+        url: "https://globalyouthmobilization.org/projects/ph/community-learning-hubs/",
+        source: "Global Youth Mobilization",
+        date: "2022",
+        image: "https://globalyouthmobilization.org/wp-content/uploads/2022/06/287299560_469735588253991_6174087566307363393_n.jpg",
+      },
+      {
+        title: "Bayanihan E-Skwela (Community Learning Hubs)",
+        url: "https://coe-psp.dap.edu.ph/compendium-innovation/bayanihan-e-skwela-community-learning-hubs/",
+        source: "Development Academy of the Philippines",
+      },
+      {
+        title: "Community Learning Hub – SDG Space",
+        url: "https://sdg-space.depdev.gov.ph/projects/156",
+        source: "Department of Education",
+      },
+    ],
   },
   {
     slug: "hack-the-future",
@@ -106,7 +147,7 @@ export const pastProjects: PastProject[] = [
     period: "2025",
     tags: ["Innovation Challenge", "Regional", "Digital Literacy"],
     category: "Youth Development",
-    projectLogo: "/hack-the-future.png",
+    projectLogo: "/htf.png",
     logos: [
       { src: "/partners/asean.png", alt: "ASEAN" },
       { src: "/partners/european-union.png", alt: "European Union" },
@@ -122,6 +163,22 @@ export const pastProjects: PastProject[] = [
       "/past-projects/hack-the-future-3.jpg",
       "/past-projects/hack-the-future-4.jpg",
     ],
+    articles: [
+      {
+        title: "Hack the Future 2025: Young Leaders for Asia Challenge ($10,000 seed funding)",
+        url: "https://opportunitydesk.org/2025/08/30/hack-the-future-2025-young-leaders-for-asia-challenge/",
+        source: "Opportunity Desk",
+        date: "2025",
+        image: "https://opportunitydesk.org/wp-content/uploads/2025/08/Hack-the-Future-2025-Young-Leaders-for-Asia-Challenge-768x601.png",
+      },
+      {
+        title: "Hack the Future 2025: Young Leaders for Asia Challenge",
+        url: "https://www.globalsouthopportunities.com/2025/08/30/asia/",
+        source: "Global South Opportunities",
+        date: "2025",
+        image: "https://i0.wp.com/www.globalsouthopportunities.com/wp-content/uploads/2025/08/Siklab.jpg",
+      },
+    ],
   },
   {
     slug: "pathways-fellowship",
@@ -132,7 +189,7 @@ export const pastProjects: PastProject[] = [
     period: "2023 &mdash; 2025",
     tags: ["Fellowship", "Mentorship", "Industry 4.0"],
     category: "Youth Development",
-    projectLogo: "/pathways.png",
+    projectLogo: "/pf.png",
     logos: [
       { src: "/partners/unicef.png", alt: "UNICEF" },
       { src: "/partners/ing.png", alt: "ING" },
@@ -150,6 +207,27 @@ export const pastProjects: PastProject[] = [
       "/past-projects/pathways-fellowship-1.jpg",
       "/past-projects/pathways-fellowship-2.jpg",
     ],
+    articles: [
+      {
+        title: "How this philanthropist is shaping the next generation's leaders",
+        url: "https://www.philstar.com/business/business-as-usual/2023/10/23/2305974/how-philanthropist-shaping-next-generations-leaders",
+        source: "Philstar",
+        date: "2023",
+        image: "https://media.philstar.com/photos/2023/10/23/lead_2023-10-23_17-08-13.jpg",
+      },
+      {
+        title: "Saje Miguel Molato – Resolution Project Fellow",
+        url: "https://resolutionproject.org/fellows/saje-miguel-molato/",
+        source: "Resolution Project",
+      },
+      {
+        title: "Saje Miguel Molato – McCain Global Leader",
+        url: "https://www.mccaininstitute.org/programs/leadership-programs/mccain-global-leaders/ngl/saje-miguel-molato/",
+        source: "McCain Institute",
+        date: "2025",
+        image: "https://www.mccaininstitute.org/wp-content/uploads/2025/06/Miguel-Molato.jpeg",
+      },
+    ],
   },
   {
     slug: "local-youth-assembly",
@@ -160,7 +238,7 @@ export const pastProjects: PastProject[] = [
     period: "2023 &mdash; 2024",
     tags: ["Youth Summits", "Civic Participation", "Mentorship"],
     category: "Youth Development",
-    projectLogo: "/local-youth-assembly.png",
+    projectLogo: "/lya.png",
     projectUrl: "https://siklab.org.ph/local-youth-assembly",
     // USAID first, last asia foundation
     logos: [
@@ -180,6 +258,21 @@ export const pastProjects: PastProject[] = [
       "/past-projects/local-youth-assembly-3.jpg",
       "/past-projects/local-youth-assembly-4.jpg",
     ],
+    articles: [
+      {
+        title: "Youth Leaders and Advocates from the CALABARZON Region Gather in a Two-Day Local Youth Assembly",
+        url: "https://thepost.net.ph/society/youth-leaders-and-advocates-from-the-calabarzon-region-gather-in-a-two-daylocal-youth-assembly-towards-a-meaningful-democratic-governance-participation/",
+        source: "The POST",
+        date: "2021",
+        image: "https://the-post-cdn.sgp1.digitaloceanspaces.com/2021/08/Copy-of-Untitled-9.png",
+      },
+      {
+        title: "USAID, The Asia Foundation Launch Inaugural National Youth Leaders' Summit",
+        url: "https://ph.usembassy.gov/usaid-the-asia-foundation-launch-inaugural-national-youth-leaders-summit/",
+        source: "U.S. Embassy in the Philippines",
+        date: "2021",
+      },
+    ],
   },
   {
     slug: "model-city-council",
@@ -190,7 +283,7 @@ export const pastProjects: PastProject[] = [
     period: "2016 &mdash; Present",
     tags: ["Governance", "Innovation Ecosystem", "Public-Private Partnership"],
     category: "Governance & Innovation",
-    projectLogo: "/past-projects/logos/model-city-council.png",
+    projectLogo: "/mcc.png",
     logos: [
       { src: "/partners/dilg.png", alt: "DILG" },
       { src: "/partners/usaid.png", alt: "USAID" },
@@ -212,6 +305,20 @@ export const pastProjects: PastProject[] = [
       "/model-city-council/BOB_0112.JPG",
       "/model-city-council/BOB_0161.JPG",
       "/model-city-council/BOB_5040.JPG",
+    ],
+    articles: [
+      {
+        title: "Model City Council – Resolution Project Venture",
+        url: "https://resolutionproject.org/ventures/model-city-council/",
+        source: "Resolution Project",
+      },
+      {
+        title: "Saje Molato – Yunus & Youth Fellow",
+        url: "https://yunusandyouth.com/project/saje-molato/",
+        source: "Yunus & Youth",
+        date: "2020",
+        image: "https://yunusandyouth.com/wp-content/uploads/2020/05/Saje-Molato.jpg",
+      },
     ],
   },
   {
@@ -238,6 +345,21 @@ export const pastProjects: PastProject[] = [
       "/un-youth-assembly/delegation-1.jpg",
       "/un-youth-assembly/delegation-2.jpg",
     ],
+    articles: [
+      {
+        title: "Siklab Pilipinas leads next batch of Filipino delegate to the UN Youth Assembly",
+        url: "https://pop.inquirer.net/56261/siklab-pilipinas-leads-next-batch-filipino-delegate-un-youth-assembly",
+        source: "Inquirer",
+        date: "2018",
+        image: "https://pop.inquirer.net/files/2018/08/52.jpg",
+      },
+      {
+        title: "The Youth Assembly announces Siklab Pilipinas as Official Delegation Partner",
+        url: "https://www.facebook.com/TheYouthAssembly/posts/saje-molato-is-the-founder-of-siklab-pilipinas-the-official-delegation-partner-o/2089418827798178/",
+        source: "The Youth Assembly at the United Nations",
+        date: "2018",
+      },
+    ],
   },
   {
     slug: "aci-youth-leader-summit",
@@ -248,7 +370,7 @@ export const pastProjects: PastProject[] = [
     period: "2024",
     tags: ["Youth Leadership", "Asia-Pacific", "Cross-Border"],
     category: "International Engagement",
-    projectLogo: "/past-projects/logos/aci-youth-leader-summit.png",
+    projectLogo: "/aciyls.png",
     projectUrl: "https://siklab.org.ph/youth-leadership-summit",
     logos: [
       { src: "/partners/osg.png", alt: "Office of the Solicitor General" },
@@ -264,6 +386,21 @@ export const pastProjects: PastProject[] = [
       "/aci-youth-leader/aci-yl-1.jpg",
       "/aci-youth-leader/aci-yl-2.jpg",
       "/aci-youth-leader/aci-yl-3.jpg",
+    ],
+    articles: [
+      {
+        title: "2023 ACI Youth Leadership Summit",
+        url: "https://www.osgyouthalliance.org/2023-aci-youth-leadership-summit",
+        source: "OSG Youth Alliance",
+        date: "2023",
+        image: "https://static.wixstatic.com/media/57ef26_e62cef3bceca440081a54d3662aeed16~mv2.jpg/v1/fill/w_1225,h_916,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/57ef26_e62cef3bceca440081a54d3662aeed16~mv2.jpg",
+      },
+      {
+        title: "2024 ACI Youth Leadership Summit – Country Round Winners",
+        url: "https://www.osgyouthalliance.org/2024-sustainability-country-round-winners",
+        source: "OSG Youth Alliance",
+        date: "2024",
+      },
     ],
   },
 ];

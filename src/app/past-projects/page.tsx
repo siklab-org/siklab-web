@@ -85,11 +85,11 @@ export default function PastProjects() {
 
                         {project.projectLogo && (
                           <div className="flex items-center mb-5">
-                            <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center flex-shrink-0 overflow-hidden rounded-xl">
+                            <div className="h-20 md:h-24 flex items-center justify-center flex-shrink-0">
                               <img
                                 src={project.projectLogo}
                                 alt={`${project.name} logo`}
-                                className="w-full h-full object-cover"
+                                className="h-full w-auto object-contain max-w-[160px] md:max-w-[192px]"
                                 decoding="async"
                               />
                             </div>
