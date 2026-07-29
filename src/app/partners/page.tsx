@@ -54,7 +54,7 @@ const partners: Partner[] = [
   },
   {
     name: "KPMG",
-    file: "kpmg.png",
+    file: "kpmg.svg",
     description: "Partner for Enactus.",
   },
   {

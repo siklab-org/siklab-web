@@ -9,6 +9,7 @@ const partnerLogos: Record<string, string> = {
   ADB: "adb.png",
   ING: "ing.png",
   "Khan Academy": "khan-academy.png",
+  KPMG: "kpmg.svg",
   Enactus: "enactus.png",
 
   "Resolution Project": "resolution-project.png",
