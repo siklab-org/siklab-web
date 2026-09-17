@@ -125,6 +125,25 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            <motion.a
+              href="https://www.philippineyouthsummit.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-white cursor-pointer"
+              animate={{ y: [0, -4, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Image
+                src="/PYIS.png"
+                alt="PYIS logo"
+                width={20}
+                height={20}
+                className="h-5 w-5 object-contain"
+              />
+              PYIS
+            </motion.a>
           </nav>
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen(true)}>
             <Menu className="h-5 w-5" />
@@ -195,6 +214,26 @@ export function SiteHeader() {
                   {item.label}
                 </Link>
               ))}
+              <motion.a
+                href="https://www.philippineyouthsummit.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="mt-2 flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-white cursor-pointer"
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Image
+                  src="/PYIS.png"
+                  alt="PYIS logo"
+                  width={20}
+                  height={20}
+                  className="h-5 w-5 object-contain"
+                />
+                PYIS
+              </motion.a>
             </div>
           </motion.div>
         )}
