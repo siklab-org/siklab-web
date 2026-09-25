@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/src/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent, useReducedMotion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
@@ -30,6 +30,16 @@ export function SiteHeader() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
+  const reduce = useReducedMotion();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    if (latest < 120) setHidden(false);
+    else if (latest - prev > 8) setHidden(true);
+    else if (prev - latest > 8) setHidden(false);
+  });
 
   useEffect(() => {
     if (open) {
@@ -53,7 +63,14 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur-md">
+      <motion.header
+        className="sticky top-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur-md"
+        initial={false}
+        animate={{
+          transform: hidden && !open && !projectsOpen && !reduce ? "translateY(-100%)" : "translateY(0%)",
+        }}
+        transition={{ type: "spring", duration: 0.5, bounce: 0 }}
+      >
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <Link href="/" className="block transition-opacity hover:opacity-80">
             <Image
@@ -150,7 +167,7 @@ export function SiteHeader() {
             <span className="sr-only">Open menu</span>
           </Button>
         </div>
-      </header>
+      </motion.header>
 
       <AnimatePresence>
         {open && (

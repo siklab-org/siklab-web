@@ -243,9 +243,11 @@ export default function BoardOfAdvisors() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-12 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-5 md:gap-6">
           {members.map((member, i) => (
-            <MemberCard key={member.name} member={member} index={i} />
+            <div key={member.name} className="w-full md:w-[calc((100%-3rem)/3)]">
+              <MemberCard member={member} index={i} />
+            </div>
           ))}
         </div>
       </section>
