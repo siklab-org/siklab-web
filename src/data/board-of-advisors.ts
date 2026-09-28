@@ -77,7 +77,7 @@ export const rawMembers: BoardMember[] = [
     email: "elin@bantani.com",
     imageSrc: "/board/Elin.png",
     companyLogoSrc: "/board/logos/bantani.png",
-    bio: "",
+    bio: "Elin McCallum is founder and executive director of Bantani Education, a Belgium-based non-profit working on entrepreneurial and creative learning across Europe and internationally. She has more than twenty years in entrepreneurship education, educator capacity-building and education reform, and has authored both research and policy guidance including the European Commission's EntreComp into Action guide - the practical handbook for the EU entrepreneurship competence framework now used well beyond Europe. She co-founded the EntreComp Community, a network of more than 3,000 educators and organisations across 90 countries.  Her core work is capacity-building in diverse settings: delivering expert training, building change-maker curricula and programmes, or helping ministries embed entrepreneurship and life skills across schools, employment and start-up, from Central Asia to the Western Balkans, Palestine and Namibia. She is a senior expert to the European Commission, European Institute of Technology, the European Training Foundation, CEDEFOP and the OECD, favours experiential and simulation-based methods and gives candid counsel rather than easy agreement.",
   },
   {
     name: "Mrwan Mohey",
@@ -88,16 +88,6 @@ export const rawMembers: BoardMember[] = [
     imageSrc: "/board/Mrwan.png",
     companyLogoSrc: "/board/logos/art.png",
     bio: "Mrwan is a space entrepreneur dedicated to accelerating the aerospace ecosystem across the Middle East and Africa. He is the Co-Founder and Chief Operating Officer of Advanced Rocket Technologies, the first space launch company in the MENA region, and appointed judge at the Global Space Awards. In addition to his executive leadership at A.R.T., Mrwan serves as the Egypt Expansion Lead for SpacePoint, driving the regional deployment of hands-on educational satellite programs.",
-  },
-  {
-    name: "Edward Yee",
-    title: "Founder / Head of Strategy and Growth",
-    organization: "Givfunds / FAR.AI",
-    contact: "",
-    email: "",
-    imageSrc: "/board/Edward.png",
-    companyLogoSrc: "/board/logos/givfunds.png",
-    bio: "Founder of Givfunds and Head of Strategy and Growth at FAR.AI, one of the world's leading independent safety testing organizations for frontier AI models. A serial social entrepreneur (Givfunds, nsave), Rhodes Scholar, Forbes 30 Under 30 honoree, Obama Leader, Commonwealth Youth Award recipient, and co-founder of AI for Asia.",
   },
   {
     name: "Natalia Fareti",

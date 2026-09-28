@@ -41,58 +41,68 @@ function MemberCard({
               transition: { staggerChildren: 0.08, delayChildren: index * 0.04 },
             },
           }}
-          className="group cursor-pointer"
+          className="group cursor-pointer h-full"
           style={{ "--card-glow": member.glowRgb } as React.CSSProperties}
         >
           <motion.div
             variants={fadeUp}
-            className="relative bg-white border border-foreground/5 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_-12px_rgba(var(--card-glow),0.15)] hover:border-[rgba(var(--card-glow),0.25)]"
+            className="relative h-full flex items-stretch bg-white border border-foreground/5 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_-12px_rgba(var(--card-glow),0.15)] hover:border-[rgba(var(--card-glow),0.25)]"
           >
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative w-[40%] min-w-[120px] max-w-[260px] shrink-0 overflow-hidden">
               {member.imageSrc ? (
                 <Image
                   src={member.imageSrc}
                   alt={member.name}
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 640px) 40vw, (max-width: 1280px) 30vw, 240px"
                 />
               ) : (
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${member.color} flex items-center justify-center transition-all duration-700 group-hover:scale-[1.03]`}
                 >
-                  <span className="font-display text-7xl md:text-8xl font-bold text-white/15 select-none">
+                  <span className="font-display text-5xl font-bold text-white/15 select-none">
                     {member.initials}
                   </span>
                 </div>
               )}
             </div>
 
-            <div className="p-4 md:p-5">
-              <h2 className="font-display text-lg md:text-xl text-foreground leading-tight">
+            <div className="p-5 md:p-7 flex flex-col justify-center min-w-0 flex-1">
+              <h2 className="font-display text-xl md:text-2xl text-foreground leading-tight">
                 {member.name}
               </h2>
-              <div className="mt-1.5 space-y-1">
+              <div className="mt-2.5 space-y-1.5">
                 {member.title && (
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground/70 font-medium">
+                  <p className="text-xs uppercase tracking-[0.12em] text-muted-foreground/70 font-medium">
                     {member.title}
                   </p>
                 )}
                 {member.organization && (
-                  <div className="flex items-center gap-2 mt-1">
+                  <div className="flex items-center gap-2.5 mt-1.5">
                     {member.companyLogoSrc && (
                       <img
                         src={member.companyLogoSrc}
                         alt={member.organization}
-                        className="h-5 w-auto object-contain grayscale opacity-60"
+                        className="h-6 w-auto object-contain grayscale opacity-60 shrink-0"
                       />
                     )}
-                    <p className="text-[11px] text-muted-foreground/50">
+                    <p className="text-xs text-muted-foreground/50 min-w-0">
                       {member.organization}
                     </p>
                   </div>
                 )}
               </div>
+
+              {member.bio ? (
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground/70 line-clamp-3">
+                  {member.bio}
+                </p>
+              ) : (
+                <p className="mt-4 text-sm text-muted-foreground/40 italic">
+                  Biography coming soon.
+                </p>
+              )}
             </div>
           </motion.div>
         </motion.div>
@@ -203,7 +213,7 @@ function MemberCard({
 export default function BoardOfAdvisors() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-2">
+      <section className="mx-auto w-full max-w-[1800px] px-6 md:px-10 pt-4 pb-2 md:pt-4">
         <motion.div
           initial="initial"
           animate="animate"
@@ -242,12 +252,10 @@ export default function BoardOfAdvisors() {
         </motion.div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-12 pb-24">
-        <div className="flex flex-wrap justify-center gap-5 md:gap-6">
+      <section className="mx-auto w-full max-w-[1800px] px-6 md:px-10 py-12 pb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6">
           {members.map((member, i) => (
-            <div key={member.name} className="w-full md:w-[calc((100%-3rem)/3)]">
-              <MemberCard member={member} index={i} />
-            </div>
+            <MemberCard key={member.name} member={member} index={i} />
           ))}
         </div>
       </section>

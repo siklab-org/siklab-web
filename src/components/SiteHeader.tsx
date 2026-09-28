@@ -108,8 +108,8 @@ export function SiteHeader() {
         }}
         transition={{ type: "spring", duration: 0.5, bounce: 0 }}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 pb-3 pt-[calc(0.75rem+env(safe-area-inset-top,0px))] md:px-6 md:pb-4 md:pt-4">
-          <Link href="/" className="block transition-opacity hover:opacity-80">
+        <div className="flex w-full items-center justify-between px-5 pb-3 pt-[calc(0.75rem+env(safe-area-inset-top,0px))] md:px-6 md:pb-4 md:pt-4">
+          <Link href="/" className="block shrink-0 pl-1 transition-opacity hover:opacity-80">
             <Image
               src="/siklab-logo.png"
               alt="Siklab"
