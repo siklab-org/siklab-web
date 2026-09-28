@@ -253,7 +253,7 @@ export default function BoardOfAdvisors() {
       </section>
 
       <section className="mx-auto w-full max-w-[1800px] px-6 md:px-10 py-12 pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
           {members.map((member, i) => (
             <MemberCard key={member.name} member={member} index={i} />
           ))}
