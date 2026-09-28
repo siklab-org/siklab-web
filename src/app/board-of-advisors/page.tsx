@@ -46,7 +46,7 @@ function MemberCard({
         >
           <motion.div
             variants={fadeUp}
-            className="relative h-full flex items-stretch bg-white border border-foreground/5 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_-12px_rgba(var(--card-glow),0.15)] hover:border-[rgba(var(--card-glow),0.25)]"
+            className="relative h-full flex items-stretch min-h-[320px] sm:min-h-[360px] lg:min-h-[400px] bg-white border border-foreground/5 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_12px_40px_-12px_rgba(var(--card-glow),0.15)] hover:border-[rgba(var(--card-glow),0.25)]"
           >
             <div className="relative w-[40%] min-w-[120px] max-w-[260px] shrink-0 overflow-hidden">
               {member.imageSrc ? (
