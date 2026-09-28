@@ -103,6 +103,147 @@
   }
 }
 
+@theme {
+  --ease-out-ui: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-ui: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --animate-fade-in: fade-in 220ms var(--ease-out-ui) backwards;
+  --animate-fade-out: fade-out 200ms var(--ease-out-ui) backwards;
+  --animate-drawer-in-right: drawer-in-right 420ms var(--ease-drawer) backwards;
+  --animate-drawer-out-right: drawer-out-right 300ms var(--ease-drawer) backwards;
+  --animate-drawer-in-left: drawer-in-left 420ms var(--ease-drawer) backwards;
+  --animate-drawer-out-left: drawer-out-left 300ms var(--ease-drawer) backwards;
+  --animate-drawer-in-bottom: drawer-in-bottom 420ms var(--ease-drawer) backwards;
+  --animate-drawer-out-bottom: drawer-out-bottom 300ms var(--ease-drawer) backwards;
+  --animate-drawer-in-top: drawer-in-top 420ms var(--ease-drawer) backwards;
+  --animate-drawer-out-top: drawer-out-top 300ms var(--ease-drawer) backwards;
+  --animate-nav-item: nav-item 320ms var(--ease-out-ui) backwards;
+  --animate-nav-item-fade: nav-item-fade 200ms var(--ease-out-ui) backwards;
+  --animate-control-in: control-in 420ms var(--ease-drawer) 80ms backwards;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes drawer-in-right {
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes drawer-out-right {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+
+  @keyframes drawer-in-left {
+    from {
+      transform: translate3d(-100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes drawer-out-left {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  @keyframes drawer-in-bottom {
+    from {
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes drawer-out-bottom {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+
+  @keyframes drawer-in-top {
+    from {
+      transform: translate3d(0, -100%, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes drawer-out-top {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(0, -100%, 0);
+    }
+  }
+
+  @keyframes nav-item {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 14px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes nav-item-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes control-in {
+    from {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.72);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(0.985 0.005 90);
@@ -243,4 +384,37 @@ body::after {
   .animate-kenburns {
     animation: none;
   }
+
+  .animate-drawer-in-right,
+  .animate-drawer-in-left,
+  .animate-drawer-in-top,
+  .animate-drawer-in-bottom {
+    animation-name: fade-in;
+    animation-duration: 150ms;
+  }
+
+  .animate-drawer-out-right,
+  .animate-drawer-out-left,
+  .animate-drawer-out-top,
+  .animate-drawer-out-bottom {
+    animation-name: fade-out;
+    animation-duration: 100ms;
+  }
+
+  .animate-control-in {
+    animation-name: fade-in;
+    animation-duration: 150ms;
+    animation-delay: 0ms;
+  }
+
+  .animate-nav-item {
+    animation-name: nav-item-fade;
+    animation-duration: 200ms;
+    animation-delay: 0ms;
+  }
+}
+
+.tap {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }

@@ -70,14 +70,14 @@ export default function Home() {
         <div
           aria-hidden
           className="absolute inset-x-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          style={{ width: "min(680px, 90vw)", height: "360px" }}
+          style={{ width: "min(520px, 80vw)", height: "240px" }}
         >
           <span
             className="animate-breathe block h-full w-full rounded-full will-change-transform"
             style={{
               background:
                 "radial-gradient(circle, rgba(217,119,6,0.16) 0%, rgba(234,88,12,0.08) 45%, transparent 72%)",
-              filter: "blur(40px)",
+              filter: "blur(32px)",
             }}
           />
         </div>
@@ -87,30 +87,30 @@ export default function Home() {
           whileInView="animate"
           viewport={{ once: true, margin: "-60px" }}
           variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
-          className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 text-center"
+          className="relative mx-auto max-w-7xl px-6 pt-12 pb-4 text-center md:pt-16 md:pb-6"
         >
           <motion.p
             variants={fadeUp}
-            className="text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/50 mb-4"
+            className="text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/50 mb-3"
           >
             Let&apos;s build together
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground mb-8"
+            className="font-display text-2xl md:text-4xl leading-[1.15] tracking-tight text-foreground mb-5"
           >
             Get in touch with us
           </motion.h2>
           <motion.div
             variants={fadeIn}
             aria-hidden
-            className="mx-auto -mt-2 mb-8 h-px w-[70%]"
+            className="mx-auto -mt-1 mb-5 h-px w-[60%]"
           >
             <span className="animate-breathe-line block h-full w-full rounded-full bg-gradient-to-r from-transparent via-amber-400/50 to-transparent will-change-transform" />
           </motion.div>
           <motion.p
             variants={fadeUp}
-            className="text-foreground/60 max-w-xl mx-auto mb-10 text-base md:text-lg leading-relaxed"
+            className="text-foreground/60 max-w-lg mx-auto mb-7 text-sm md:text-base leading-relaxed"
           >
             Whether you&apos;re an organization seeking partnership or a young
             leader ready to grow, we&apos;d love to hear from you.
@@ -118,7 +118,7 @@ export default function Home() {
           <motion.div variants={fadeUp}>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 rounded-full border border-primary/25 px-8 py-3.5 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground active:scale-[0.97] transition-[background-color,color,border-color,transform] duration-200 ease-out"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-primary/25 px-7 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground active:scale-[0.97] transition-[background-color,color,border-color,transform] duration-200 ease-out"
             >
               Contact us
               <span className="transition-transform duration-200 ease-out group-hover:translate-x-1">

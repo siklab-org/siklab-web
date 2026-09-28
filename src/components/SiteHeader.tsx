@@ -2,10 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/src/components/ui/button";
+import { X, ChevronDown, ArrowUpRight } from "lucide-react";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/src/components/ui/sheet";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent, useReducedMotion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 const nav = [
@@ -23,6 +29,39 @@ const projectsDropdown = {
     { href: "/past-projects", label: "Past Projects" },
   ] as const,
 };
+
+type NavEntry = { href: string; label: string };
+
+function MobileNavRow({
+  item,
+  active,
+  delay,
+}: {
+  item: NavEntry;
+  active: boolean;
+  delay: number;
+}) {
+  return (
+    <SheetClose asChild>
+      <Link
+        href={item.href}
+        style={{ animationDelay: `${delay}ms` }}
+        className={`tap animate-nav-item flex items-center justify-between gap-4 rounded-2xl px-4 py-3.5 text-lg font-medium transition-[color,background-color,transform] duration-200 ease-out-ui active:scale-[0.98] ${
+          active
+            ? "bg-primary/10 text-primary"
+            : "text-foreground/75 active:bg-foreground/5 active:text-foreground"
+        }`}
+      >
+        {item.label}
+        {active ? (
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+        ) : (
+          <ArrowUpRight className="h-4 w-4 shrink-0 text-foreground/30" />
+        )}
+      </Link>
+    </SheetClose>
+  );
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -42,15 +81,13 @@ export function SiteHeader() {
   });
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onChange = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(false);
     };
-  }, [open]);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -71,14 +108,14 @@ export function SiteHeader() {
         }}
         transition={{ type: "spring", duration: 0.5, bounce: 0 }}
       >
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 pb-3 pt-[calc(0.75rem+env(safe-area-inset-top,0px))] md:px-6 md:pb-4 md:pt-4">
           <Link href="/" className="block transition-opacity hover:opacity-80">
             <Image
               src="/siklab-logo.png"
               alt="Siklab"
               width={200}
               height={60}
-              className="h-12 w-auto"
+              className="h-9 w-auto md:h-12"
               priority
             />
           </Link>
@@ -146,10 +183,7 @@ export function SiteHeader() {
               href="https://www.philippineyouthsummit.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-white cursor-pointer"
-              animate={{ y: [0, -4, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.08 }}
+              className="flex cursor-pointer items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary transition-[background-color,color] duration-200 ease hover:bg-primary hover:text-white"
               whileTap={{ scale: 0.95 }}
             >
               <Image
@@ -162,99 +196,117 @@ export function SiteHeader() {
               PYIS
             </motion.a>
           </nav>
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen(true)}>
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Open menu</span>
-          </Button>
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <button
+                type="button"
+                aria-label="Open menu"
+                className="tap -mr-1.5 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-foreground/10 bg-foreground/[0.03] transition-[background-color,transform] duration-200 ease-out-ui hover:bg-foreground/[0.06] active:scale-90 md:hidden"
+              >
+                <span className="relative block h-3.5 w-5">
+                  <span className="absolute inset-x-0 top-0 h-[1.5px] rounded-full bg-foreground" />
+                  <span className="absolute inset-x-0 top-1/2 h-[1.5px] -translate-y-1/2 rounded-full bg-foreground/55" />
+                  <span className="absolute inset-x-0 bottom-0 h-[1.5px] rounded-full bg-foreground" />
+                </span>
+              </button>
+            </SheetTrigger>
+
+            <SheetContent
+              side="right"
+              showCloseButton={false}
+              overlayProps={{ className: "bg-black/55 backdrop-blur-[3px]" }}
+              className="tap w-[86vw] border-l border-foreground/10 bg-background/95 p-0 shadow-[-32px_0_80px_-40px_rgba(15,23,42,0.55)] backdrop-blur-2xl"
+            >
+              <SheetTitle className="sr-only">Site navigation</SheetTitle>
+              <div className="flex h-full flex-col overflow-y-auto overscroll-contain pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] pt-[calc(1.25rem+env(safe-area-inset-top,0px))]">
+                <div className="flex items-center justify-between gap-4 px-6 pb-8">
+                  <Link href="/" onClick={() => setOpen(false)}>
+                    <Image
+                      src="/siklab-logo.png"
+                      alt="Siklab"
+                      width={132}
+                      height={40}
+                      className="h-8 w-auto"
+                    />
+                  </Link>
+                  <SheetClose
+                    className="animate-control-in inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-foreground/10 bg-foreground/[0.03] text-foreground/60 transition-[color,background-color,transform] duration-200 ease-out-ui hover:bg-foreground/[0.06] hover:text-foreground active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <X className="h-4 w-4" />
+                    <span className="sr-only">Close menu</span>
+                  </SheetClose>
+                </div>
+
+                <nav className="flex flex-col px-3">
+                  <p
+                    className="animate-nav-item px-4 pb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/70"
+                    style={{ animationDelay: "60ms" }}
+                  >
+                    Projects
+                  </p>
+                  {projectsDropdown.items.map((item, i) => (
+                    <MobileNavRow
+                      key={item.href}
+                      item={item}
+                      active={pathname === item.href}
+                      delay={100 + i * 45}
+                    />
+                  ))}
+
+                  <div
+                    className="animate-nav-item mx-4 my-4 h-px bg-foreground/10"
+                    style={{ animationDelay: "190ms" }}
+                  />
+
+                  <p
+                    className="animate-nav-item px-4 pb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/70"
+                    style={{ animationDelay: "215ms" }}
+                  >
+                    Explore
+                  </p>
+                  {nav.map((item, i) => (
+                    <MobileNavRow
+                      key={item.href}
+                      item={item}
+                      active={pathname === item.href}
+                      delay={250 + i * 45}
+                    />
+                  ))}
+                </nav>
+
+                <div className="mt-auto px-6 pt-10">
+                  <SheetClose asChild>
+                    <a
+                      href="https://www.philippineyouthsummit.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ animationDelay: "480ms" }}
+                      className="animate-nav-item group flex items-center gap-3 rounded-2xl border border-primary/25 bg-primary/[0.07] px-4 py-3.5 transition-[background-color,transform] duration-200 ease-out-ui hover:bg-primary/15 active:scale-[0.98]"
+                    >
+                      <Image
+                        src="/PYIS.png"
+                        alt=""
+                        width={36}
+                        height={36}
+                        className="h-9 w-9 rounded-full bg-white object-contain p-0.5"
+                      />
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-sm font-semibold text-primary">
+                          Philippine Youth Summit
+                        </span>
+                        <span className="block text-xs text-muted-foreground">
+                          Our external partner site
+                        </span>
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 shrink-0 text-primary/50 transition-transform duration-200 ease-out-ui group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  </SheetClose>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </motion.header>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            key="backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-black/80"
-            onClick={() => setOpen(false)}
-          />
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            key="sidebar"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
-            className="fixed inset-y-0 right-0 z-50 w-3/4 max-w-sm bg-background border-l p-6 shadow-lg"
-          >
-            <button
-              onClick={() => setOpen(false)}
-              className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background cursor-pointer transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-            >
-              <X className="h-4 w-4" />
-              <span className="sr-only">Close</span>
-            </button>
-            <div className="flex flex-col gap-4 mt-16">
-              {/* Projects sub-items first */}
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground/50 mt-2 mb-1">Projects</p>
-              {projectsDropdown.items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-lg font-medium transition-colors ${
-                    pathname === item.href
-                      ? "text-primary"
-                      : "text-foreground/70 hover:text-primary"
-                  }`}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <div className="h-px bg-foreground/10 my-2" />
-              {nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-lg font-medium transition-colors ${
-                    pathname === item.href
-                      ? "text-primary"
-                      : "text-foreground/70 hover:text-primary"
-                  }`}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <motion.a
-                href="https://www.philippineyouthsummit.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
-                className="mt-2 flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-white cursor-pointer"
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Image
-                  src="/PYIS.png"
-                  alt="PYIS logo"
-                  width={20}
-                  height={20}
-                  className="h-5 w-5 object-contain"
-                />
-                PYIS
-              </motion.a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
