@@ -67,8 +67,6 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://siklab.org",
     siteName: "Siklab",
-    images:
-      "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e5cc12f1-c6d3-4dd7-95a1-8a680c6490ac/id-preview-43303485--70c5df59-2f12-43af-a28a-cccf6fc2e7fd.lovable.app-1781159719416.png",
   },
   twitter: {
     card: "summary_large_image",
@@ -76,8 +74,6 @@ export const metadata: Metadata = {
     title: "Siklab",
     description:
       "Developing young leaders across Asia through education, exchange, and innovation.",
-    images:
-      "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e5cc12f1-c6d3-4dd7-95a1-8a680c6490ac/id-preview-43303485--70c5df59-2f12-43af-a28a-cccf6fc2e7fd.lovable.app-1781159719416.png",
   },
 };
 
