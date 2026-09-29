@@ -42,10 +42,11 @@ export const rawMembers: BoardMember[] = [
   {
     name: "Roberto G. Manabat",
     title: "Lead Independent Director",
-    organization: "Union Bank of the Philippines",
+    organization: "KPMG",
     contact: "",
     email: "",
     imageSrc: "/board/Robert.png",
+    companyLogoSrc: "/board/logos/KPMG.webp",
     bio: "Roberto G. Manabat has more than 50 years of track record in the field of accounting and has been an adviser to a number of corporations on financial reporting, internal audit and good corporate governance. He is a recipient of many awards in recognition of his achievements in the accounting profession and in the business community.",
   },
   {
@@ -55,6 +56,7 @@ export const rawMembers: BoardMember[] = [
     contact: "",
     email: "",
     imageSrc: "/board/Geraldine.png",
+    companyLogoSrc: "/board/logos/KhanAcademy.png",
     bio: "A corporate lawyer turned social-impact leader, she serves as President and CEO of Khan Academy Philippines, the platform's first international licensee, which she has scaled to millions of learners across thousands of public schools. A graduate of Harvard College, the Harvard Kennedy School, and Columbia Law School, she was the first Filipino to serve on the Harvard Board of Overseers. She also founded the Sunshine Care Foundation and a Massachusetts General Hospital research center devoted to X-Linked Dystonia Parkinsonism, a rare disease affecting people of Filipino descent.",
   },
   {
