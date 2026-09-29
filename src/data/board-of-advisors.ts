@@ -41,13 +41,13 @@ function getInitials(name: string): string {
 export const rawMembers: BoardMember[] = [
   {
     name: "Roberto G. Manabat",
-    title: "Lead Independent Director",
+    title: "Founding Chairman Emeritus, KPMG Philippines",
     organization: "KPMG",
     contact: "",
     email: "",
     imageSrc: "/board/Robert.png",
     companyLogoSrc: "/board/logos/KPMG.webp",
-    bio: "Roberto G. Manabat has more than 50 years of track record in the field of accounting and has been an adviser to a number of corporations on financial reporting, internal audit and good corporate governance. He is a recipient of many awards in recognition of his achievements in the accounting profession and in the business community.",
+    bio: "A Certified Public Accountant, he is Chairman Emeritus of KPMG R.G. Manabat & Co.—the KPMG International member firm in the Philippines that bears his name—which he led as Chairman and CEO. He has served as Lead Independent Director of UnionBank of the Philippines since 2018 and is a board adviser on corporate governance and internal audit for SM Investments Corporation. He holds an MBA from the Asian Institute of Management."
   },
   {
     name: "Ms. Geraldine Acuña-Sunshine",
