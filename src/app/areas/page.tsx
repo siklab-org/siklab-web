@@ -50,15 +50,15 @@ function AreaIndex() {
     <div className="relative">
       <div
         aria-hidden
-        className="absolute left-0 top-0 hidden h-full w-px bg-foreground/10 md:block"
+        className="absolute left-0 top-0 h-full w-px bg-foreground/10"
       />
       <motion.div
         aria-hidden
         style={{ scaleY: reduce ? 1 : progress }}
-        className="absolute left-0 top-0 hidden h-full w-px origin-top bg-amber-600 md:block"
+        className="absolute left-0 top-0 h-full w-px origin-top bg-amber-600"
       />
 
-      <ol ref={listRef} className="md:pl-10">
+      <ol ref={listRef} className="pl-6 md:pl-10">
         {workAreas.map((area, i) => (
           <motion.li
             key={area.title}
@@ -66,30 +66,32 @@ function AreaIndex() {
             whileInView="animate"
             viewport={{ once: true, margin: "-80px" }}
             variants={{ animate: { transition: { staggerChildren: 0.07 } } }}
-            className="group border-t border-foreground/10 py-9 transition-colors duration-300 ease-out last:border-b hover:bg-foreground/[0.02] md:py-12"
+            className="group -ml-6 border-t border-foreground/10 py-8 pl-6 pr-1 transition-colors duration-300 ease-out last:border-b hover:bg-foreground/[0.02] active:bg-foreground/[0.03] md:py-12"
           >
-            <div className="grid gap-5 md:grid-cols-12 md:gap-8">
-              <motion.span
-                variants={fadeUp}
-                aria-hidden
-                className="font-display text-4xl leading-none text-foreground/15 transition-colors duration-300 group-hover:text-amber-600 md:col-span-1 md:text-5xl"
-              >
-                {String(i + 1).padStart(2, "0")}
-              </motion.span>
+            <div className="grid gap-4 md:grid-cols-12 md:gap-8">
+              <div className="flex items-baseline gap-3 md:contents">
+                <motion.span
+                  variants={fadeUp}
+                  aria-hidden
+                  className="font-display text-3xl leading-none text-foreground/15 transition-colors duration-300 group-hover:text-amber-600 group-active:text-amber-600 md:col-span-1 md:text-5xl"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </motion.span>
 
-              <div className="md:col-span-7">
-                <motion.h3
-                  variants={fadeUp}
-                  className="font-display text-2xl tracking-tight text-foreground md:text-3xl"
-                >
-                  {area.title}
-                </motion.h3>
-                <motion.p
-                  variants={fadeUp}
-                  className="mt-2 max-w-[52ch] text-sm leading-relaxed text-muted-foreground md:text-base"
-                >
-                  {area.description}
-                </motion.p>
+                <div className="md:col-span-7">
+                  <motion.h3
+                    variants={fadeUp}
+                    className="font-display text-2xl tracking-tight text-foreground md:text-3xl"
+                  >
+                    {area.title}
+                  </motion.h3>
+                  <motion.p
+                    variants={fadeUp}
+                    className="mt-2 max-w-[52ch] text-sm leading-relaxed text-muted-foreground md:text-base"
+                  >
+                    {area.description}
+                  </motion.p>
+                </div>
               </div>
 
               <motion.ul
@@ -206,7 +208,7 @@ export default function Areas() {
             whileInView="animate"
             viewport={{ once: true, margin: "-80px" }}
             variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
-            className="grid gap-10 md:grid-cols-12 md:items-end md:gap-12"
+            className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-end md:gap-12"
           >
             <motion.p
               variants={fadeUp}
@@ -217,37 +219,37 @@ export default function Areas() {
               not.
             </motion.p>
 
-            <motion.div
-              variants={fadeUp}
-              className="grid grid-cols-3 gap-3 md:col-span-7 md:gap-4"
-            >
-              {fieldImages.map((img, i) => (
-                <motion.figure
-                  key={img.src}
-                  initial={reduce ? false : { opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{
-                    duration: 0.7,
-                    delay: 0.1 + i * 0.09,
-                    ease,
-                  }}
-                  className={`overflow-hidden rounded-2xl bg-muted ${
-                    i === 1 ? "md:-translate-y-6" : ""
-                  }`}
-                >
-                  <div className="relative aspect-[3/4] w-full">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      loading="lazy"
-                      sizes="(max-width: 768px) 33vw, 22vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </motion.figure>
-              ))}
+            <motion.div variants={fadeUp} className="min-w-0 md:col-span-7">
+              <div className="-mx-6 flex snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:px-0">
+                {fieldImages.map((img, i) => (
+                  <motion.figure
+                    key={img.src}
+                    initial={reduce ? false : { opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{
+                      duration: 0.7,
+                      delay: 0.1 + i * 0.09,
+                      ease,
+                    }}
+                    className={`w-[72vw] shrink-0 snap-center overflow-hidden rounded-2xl bg-muted sm:w-[56vw] md:w-auto md:shrink ${
+                      i === 1 ? "md:-translate-y-6" : ""
+                    }`}
+                  >
+                    <div className="relative aspect-[4/5] w-full sm:aspect-[3/4] md:aspect-[3/4]">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width: 768px) 72vw, 22vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  </motion.figure>
+                ))}
+                <span aria-hidden className="w-px shrink-0 md:hidden" />
+              </div>
             </motion.div>
           </motion.div>
         </div>

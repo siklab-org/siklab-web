@@ -105,30 +105,35 @@ const projects = [
 export default function Projects() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-8">
+      <section className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-8 min-h-[52dvh] flex items-center">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-40 left-1/2 h-[28rem] w-[40rem] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+          <div className="absolute right-0 top-10 h-72 w-72 rounded-full bg-[#8561c5]/10 blur-[100px]" />
+        </div>
         <motion.div
           initial="initial"
           animate="animate"
           variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
+          className="relative"
         >
           <motion.p
             variants={fadeUp}
-            className="text-sm uppercase tracking-[0.3em] text-primary/80 mb-6"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-background/60 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-primary/90 shadow-sm backdrop-blur"
           >
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             Current Initiatives
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-display text-5xl md:text-7xl tracking-tight leading-[1.08]"
+            className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05]"
           >
             Live. <span className="text-primary">Active.</span> Growing.
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="mt-6 text-muted-foreground text-lg max-w-2xl leading-relaxed"
+            className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed"
           >
-            Two flagship initiatives driving youth leadership, innovation, and
-            entrepreneurial action across Asia.
+            Two flagship initiatives driving youth leadership, innovation, and entrepreneurial action across Asia.
           </motion.p>
         </motion.div>
       </section>
@@ -223,11 +228,11 @@ export default function Projects() {
           </div>
 
           <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 md:py-24">
-            <div className="grid md:grid-cols-12 gap-10 md:gap-16">
-                  <motion.div
-                    variants={fadeUp}
-                    className={`md:col-span-7 space-y-6 ${i % 2 === 1 ? "md:order-2" : ""}`}
-                  >
+           <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+                 <motion.div
+                   variants={fadeUp}
+                   className={`md:col-span-7 space-y-6 ${i % 2 === 1 ? "md:order-2" : ""}`}
+                 >
                     <div
                       className={`pl-5 border-l-2 ${project.theme.borderAccent}`}
                     >
@@ -238,23 +243,23 @@ export default function Projects() {
                         height={56}
                         className="h-10 md:h-14 w-auto object-contain mb-5"
                       />
-                      <div className="mb-4">
-                        <p
-                          className={`text-xs uppercase tracking-[0.25em] ${project.theme.label}`}
-                        >
-                          Flagship Initiative
-                        </p>
-                        <h2
-                          className={`${project.displayFont || "font-display"} text-3xl md:text-4xl ${project.theme.name}`}
-                        >
-                          {project.name}
-                        </h2>
-                      </div>
-                      <p
-                        className={`text-lg font-medium italic leading-snug ${project.displayFont || "font-display"} mb-4 ${project.theme.tagline}`}
-                      >
-                        &ldquo;{project.tagline}&rdquo;
-                      </p>
+                       <div className="mb-4 space-y-2">
+                         <p
+                           className={`text-[11px] uppercase tracking-[0.22em] ${project.theme.label}`}
+                         >
+                           Flagship Initiative
+                         </p>
+                         <h2
+                           className={`${project.displayFont || "font-display"} text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-[1.08] ${project.theme.name}`}
+                         >
+                           {project.name}
+                         </h2>
+                       </div>
+                       <p
+                         className={`text-xl md:text-2xl font-medium leading-[1.15] ${project.displayFont || "font-display"} mb-4 ${project.theme.tagline}`}
+                       >
+                         {project.tagline}
+                       </p>
                   <p
                     className={`leading-relaxed ${project.theme.desc}`}
                     dangerouslySetInnerHTML={{ __html: project.description }}
@@ -282,22 +287,15 @@ export default function Projects() {
                 variants={scaleIn}
                 className={`md:col-span-5 ${i % 2 === 1 ? "md:order-1" : ""}`}
               >
-                <div className="grid grid-cols-2 gap-4">
-                  {project.metrics.map((m, idx) => (
-                    <div
-                      key={idx}
-                      className={`rounded-2xl p-5 md:p-6 bg-gradient-to-br border transition-all duration-300 ease-out hover:-translate-y-1 ${project.theme.metricGradient} ${project.theme.metricCard}`}
-                      style={{
-                        boxShadow: `0 1px 2px rgba(${project.theme.metricGlow},0.04), 0 4px 8px rgba(${project.theme.metricGlow},0.04), 0 12px 32px -8px rgba(${project.theme.metricGlow},0.06)`,
-                        transition: "box-shadow 0.3s ease-out, transform 0.3s ease-out",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.boxShadow = `0 1px 2px rgba(${project.theme.metricGlow},0.04), 0 4px 8px rgba(${project.theme.metricGlow},0.04), 0 16px 48px -8px rgba(${project.theme.metricGlow},0.2), 0 0 0 1px rgba(${project.theme.metricGlow},0.15)`;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.boxShadow = `0 1px 2px rgba(${project.theme.metricGlow},0.04), 0 4px 8px rgba(${project.theme.metricGlow},0.04), 0 12px 32px -8px rgba(${project.theme.metricGlow},0.06)`;
-                      }}
-                    >
+                 <div className="grid grid-cols-2 gap-3 md:gap-4">
+                   {project.metrics.map((m, idx) => (
+                     <div
+                       key={idx}
+                       className={`group rounded-2xl p-5 md:p-6 border transition-all duration-500 ease-out hover:-translate-y-0.5 ${project.theme.metricGradient} ${project.theme.metricCard}`}
+                       style={{
+                         boxShadow: `0 1px 2px rgba(${project.theme.metricGlow},0.03), 0 4px 8px rgba(${project.theme.metricGlow},0.03), 0 12px 32px -10px rgba(${project.theme.metricGlow},0.08)`,
+                       }}
+                     >
                       <p
                         className={`${project.displayFont || "font-display"} text-2xl md:text-3xl font-semibold ${project.theme.metricValue}`}
                       >

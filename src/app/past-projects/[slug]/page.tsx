@@ -52,51 +52,48 @@ export default function PastProjectPage() {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-8">
+      <section className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-10">
         <motion.div
           initial="initial"
           animate="animate"
           variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
         >
-          <motion.div variants={fadeUp} className="mb-8">
+          <motion.div variants={fadeUp} className="mb-6 md:mb-8">
             <Link
               href="/past-projects"
-              className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-muted-foreground/60 hover:text-amber-700 transition-colors"
+              className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70 hover:text-amber-700 transition-colors"
             >
               <ArrowLeft className="w-3 h-3" />
               Back to Past Projects
             </Link>
           </motion.div>
 
-          <div className="flex items-start justify-between gap-6">
-            <div className="min-w-0">
-              <motion.span
-                variants={fadeUp}
-                className="inline-block text-[10px] uppercase tracking-[0.3em] text-amber-700/70 mb-4"
-              >
-                {project.category}
-              </motion.span>
-
-              <motion.h1
-                variants={fadeUp}
-                className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.08]"
-              >
-                {project.name}
-              </motion.h1>
-            </div>
+          <div className="space-y-4">
+            <motion.span
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50/60 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-amber-800/80 shadow-sm backdrop-blur dark:bg-amber-950/30 dark:text-amber-200 w-fit"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
+              {project.category}
+            </motion.span>
 
             {project.projectLogo && (
-              <motion.div variants={fadeUp} className="flex-shrink-0">
-                <div className="h-24 md:h-32 lg:h-40 flex items-center justify-center">
-                  <img
-                    src={project.projectLogo}
-                    alt={`${project.name} logo`}
-                    className="h-full w-auto object-contain max-w-[160px] md:max-w-[200px] lg:max-w-[260px]"
-                    decoding="async"
-                  />
-                </div>
+              <motion.div variants={fadeUp}>
+                <img
+                  src={project.projectLogo}
+                  alt={`${project.name} logo`}
+                  className="h-14 md:h-20 w-auto object-contain"
+                  decoding="async"
+                />
               </motion.div>
             )}
+
+            <motion.h1
+              variants={fadeUp}
+              className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05]"
+            >
+              {project.name}
+            </motion.h1>
           </div>
 
           <motion.p
@@ -268,13 +265,13 @@ export default function PastProjectPage() {
               viewport={{ once: true, margin: "-80px" }}
               variants={{ animate: { transition: { staggerChildren: 0.08 } } }}
             >
-              <motion.span
-                variants={fadeUp}
-                className="block text-[10px] uppercase tracking-[0.3em] text-amber-700/70 mb-6"
-              >
-                Media & Coverage
-              </motion.span>
-              <motion.div variants={fadeUp} className="space-y-4">
+            <motion.span
+             variants={fadeUp}
+             className="block text-[11px] uppercase tracking-[0.22em] text-amber-700/70 mb-6"
+           >
+             Media & Coverage
+           </motion.span>
+           <motion.div variants={fadeUp} className="grid md:grid-cols-2 gap-4">
                 {project.articles.map((article, i) => (
                   <a
                     key={i}

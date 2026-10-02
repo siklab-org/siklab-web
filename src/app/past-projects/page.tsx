@@ -20,20 +20,28 @@ const scaleIn = {
 export default function PastProjects() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-8">
+      <section className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-8 min-h-[52dvh] flex items-center">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -top-40 left-1/2 h-[28rem] w-[40rem] -translate-x-1/2 rounded-full bg-amber-500/10 blur-[120px]" />
+          <div className="absolute right-0 top-10 h-72 w-72 rounded-full bg-amber-600/5 blur-[100px]" />
+        </div>
         <motion.div
           initial="initial"
           animate="animate"
           variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
         >
-          <motion.p variants={fadeUp} className="text-sm uppercase tracking-[0.3em] text-primary/80 mb-6">
+          <motion.p
+            variants={fadeUp}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50/60 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-amber-800/80 shadow-sm backdrop-blur dark:bg-amber-950/30 dark:text-amber-200"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
             Past Projects
           </motion.p>
-          <motion.h1 variants={fadeUp} className="font-display text-5xl md:text-7xl tracking-tight leading-[1.08]">
+          <motion.h1 variants={fadeUp} className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tighter leading-[1.05]">
             Archived initiatives.
           </motion.h1>
-          <motion.p variants={fadeUp} className="mt-6 text-muted-foreground text-lg max-w-2xl leading-relaxed">
-            Flagship programs that have completed their run &mdash; their impact continues through the communities they built.
+          <motion.p variants={fadeUp} className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
+            Flagship programs that have completed their run— their impact continues through the communities they built.
           </motion.p>
         </motion.div>
       </section>
@@ -55,13 +63,13 @@ export default function PastProjects() {
                 variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
               >
                 <motion.div variants={fadeUp} className="mb-8 md:mb-10">
-                  <span className="inline-block text-[10px] uppercase tracking-[0.3em] text-amber-700/70 mb-3">
+                  <span className="inline-block text-[11px] uppercase tracking-[0.22em] text-amber-700/70 mb-3">
                     {category.label}
                   </span>
-                  <h2 className="font-display text-3xl md:text-4xl text-foreground">
+                  <h2 className="font-display text-3xl md:text-4xl tracking-tighter leading-[1.08] text-foreground">
                     {category.label}
                   </h2>
-                  <p className="mt-2 text-sm text-muted-foreground/70 max-w-2xl">
+                  <p className="mt-2 text-base text-muted-foreground max-w-xl leading-relaxed">
                     {category.description}
                   </p>
                 </motion.div>
@@ -106,14 +114,14 @@ export default function PastProjects() {
                           </span>
                         </div>
 
-                        <h3 className="font-display text-2xl md:text-3xl text-foreground mb-1 group-hover:text-amber-700 transition-colors">
+                        <h3 className="font-display text-2xl md:text-3xl tracking-tighter leading-[1.08] text-foreground mb-1 group-hover:text-amber-700 transition-colors">
                           {project.name}
                         </h3>
-                        <p className="text-xs uppercase tracking-[0.15em] text-amber-700/60 mb-3">
+                        <p className="text-[11px] uppercase tracking-[0.18em] text-amber-700/60 mb-3">
                           {project.subtitle}
                         </p>
                         <p
-                          className="text-sm text-muted-foreground leading-relaxed mb-5"
+                          className="text-base text-muted-foreground leading-relaxed mb-5 max-w-prose"
                           dangerouslySetInnerHTML={{ __html: project.description }}
                         />
 
