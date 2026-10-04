@@ -52,13 +52,13 @@ export default function PastProjectPage() {
 
   return (
     <>
-      <section className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-10">
+      <section className="relative mx-auto max-w-6xl px-6 pt-10 md:pt-12 pb-10">
         <motion.div
           initial="initial"
           animate="animate"
           variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
         >
-          <motion.div variants={fadeUp} className="mb-6 md:mb-8">
+          <motion.div variants={fadeUp} className="mb-4 md:mb-5">
             <Link
               href="/past-projects"
               className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70 hover:text-amber-700 transition-colors"

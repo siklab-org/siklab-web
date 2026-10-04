@@ -20,7 +20,7 @@ const scaleIn = {
 export default function PastProjects() {
   return (
     <>
-      <section className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-8 min-h-[52dvh] flex items-center">
+      <section className="relative mx-auto max-w-6xl px-6 pt-10 md:pt-12 pb-8 min-h-[48dvh] flex items-center">
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute -top-40 left-1/2 h-[28rem] w-[40rem] -translate-x-1/2 rounded-full bg-amber-500/10 blur-[120px]" />
           <div className="absolute right-0 top-10 h-72 w-72 rounded-full bg-amber-600/5 blur-[100px]" />
