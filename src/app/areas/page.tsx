@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import {
+  MotionConfig,
   motion,
   useReducedMotion,
   useScroll,
@@ -19,15 +20,69 @@ const fadeUp = {
   animate: { y: 0, opacity: 1, transition: { duration: 0.75, ease } },
 };
 
+const drawIn = {
+  initial: { transform: "scaleX(0)" },
+  animate: { transform: "scaleX(1)", transition: { duration: 0.6, ease } },
+};
+
+const frameIn = {
+  initial: { opacity: 0, transform: "translateY(22px) scale(0.965)" },
+  animate: {
+    opacity: 1,
+    transform: "translateY(0px) scale(1)",
+    transition: { duration: 0.9, ease },
+  },
+};
+
+const tagIn = {
+  initial: { opacity: 0, transform: "translateY(10px)" },
+  animate: {
+    opacity: 1,
+    transform: "translateY(0px)",
+    transition: { duration: 0.5, ease },
+  },
+};
+
+function TitleMask({ children }: { children: React.ReactNode }) {
+  const reduce = useReducedMotion();
+
+  if (reduce) {
+    return (
+      <motion.span
+        variants={{ initial: { opacity: 0 }, animate: { opacity: 1, transition: { duration: 0.4 } } }}
+        className="inline-block"
+      >
+        {children}
+      </motion.span>
+    );
+  }
+
+  return (
+    <motion.span
+      variants={{
+        initial: { clipPath: "inset(0 0 100% 0)", transform: "translateY(16px)" },
+        animate: {
+          clipPath: "inset(0 0 0% 0)",
+          transform: "translateY(0px)",
+          transition: { duration: 0.8, ease },
+        },
+      }}
+      className="inline-block will-change-transform"
+    >
+      {children}
+    </motion.span>
+  );
+}
+
 const fieldFrames = [
   {
     index: "01",
-    src: "/un-youth-assembly/delegation-1.jpg",
-    alt: "Siklab delegates at the United Nations Youth Assembly",
-    tag: "United Nations Youth Assembly",
-    place: "New York",
+    src: "/aci-youth-leader/aci-yl-1.jpg",
+    alt: "Delegates at the ACI Youth Leader Summit",
+    tag: "ACI Youth Leader Summit",
+    place: "Asian region",
     caption:
-      "Delegates chosen from the national youth assembly take their seats in the General Assembly hall, alongside permanent missions and accredited organizations.",
+      "A regional convening where young leaders trade practice on climate adaptation, disaster response, and local governance.",
     tone: "",
   },
   {
@@ -52,12 +107,12 @@ const fieldFrames = [
   },
   {
     index: "04",
-    src: "/aci-youth-leader/aci-yl-1.jpg",
-    alt: "Delegates at the ACI Youth Leader Summit",
-    tag: "ACI Youth Leader Summit",
-    place: "Asian region",
+    src: "/un-youth-assembly/delegation-1.jpg",
+    alt: "Siklab delegates at the United Nations Youth Assembly",
+    tag: "United Nations Youth Assembly",
+    place: "New York",
     caption:
-      "A regional convening where young leaders trade practice on climate adaptation, disaster response, and local governance.",
+      "Delegates chosen from the national youth assembly take their seats in the General Assembly hall, alongside permanent missions and accredited organizations.",
     tone: "",
   },
 ] as const;
@@ -112,7 +167,7 @@ function AreaIndex() {
                   {String(i + 1).padStart(2, "0")}
                 </motion.span>
 
-                <div className="md:col-span-7">
+<div className="md:col-span-7">
                   <motion.h3
                     variants={fadeUp}
                     className="font-display text-2xl tracking-tight text-foreground md:text-3xl"
@@ -470,61 +525,122 @@ function FieldNotes() {
 export default function Areas() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-20 pb-12 md:pt-24 md:pb-16">
-        <motion.div
-          initial="initial"
-          animate="animate"
-          variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
-          className="grid items-center gap-8 md:grid-cols-12 md:gap-10"
-        >
-          <div className="md:col-span-7">
-            <motion.p
-              variants={fadeUp}
-              className="mb-5 text-xs uppercase tracking-[0.3em] text-foreground/50"
-            >
-              Areas of Work
-            </motion.p>
-            <motion.h1
-              variants={fadeUp}
-              className="font-display text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl lg:text-6xl"
-            >
-              Six areas, one practice.
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="mt-5 max-w-[52ch] text-base leading-relaxed text-muted-foreground md:text-lg"
-            >
-              Education, exchange, partnerships, consulting, applied AI, and
-              social innovation. These are the fields where we design and
-              deliver programs across Asia.
-            </motion.p>
-          </div>
-
+       <MotionConfig reducedMotion="user">
+        <section className="relative isolate overflow-hidden">
           <motion.div
-            variants={fadeUp}
-            className="relative md:col-span-5"
-          >
-            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl bg-muted">
-              <Image
-                src="/un-youth-assembly/delegation-1.jpg"
-                alt="Siklab delegates at the United Nations Youth Assembly"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-amber-950/20 via-transparent to-transparent"
-              />
-            </div>
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -bottom-2.5 -left-2.5 h-full w-full rounded-2xl border border-amber-600/25"
-            />
-          </motion.div>
-        </motion.div>
-      </section>
+            aria-hidden
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.1, ease }}
+            className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[28rem] bg-gradient-to-b from-amber-900/[0.08] to-transparent md:h-[40rem]"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-amber-500/[0.07] blur-[140px]"
+          />
+          <motion.div
+            aria-hidden
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, delay: 0.15, ease }}
+            className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-amber-600/40 to-transparent"
+          />
+
+          <div className="mx-auto max-w-6xl px-6 pt-14 pb-12 md:pt-20 md:pb-20">
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
+              className="grid items-center gap-10 md:grid-cols-12 md:gap-12"
+            >
+              <motion.div
+                variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
+                className="md:col-span-7"
+              >
+                <motion.div variants={fadeUp} className="flex items-center gap-4">
+                  <motion.span
+                    aria-hidden
+                    variants={drawIn}
+                    style={{ originX: 0 }}
+                    className="h-px w-10 bg-amber-600/70 md:w-16"
+                  />
+                  <p className="text-[11px] uppercase tracking-[0.32em] text-foreground/60">
+                    Areas of Work
+                  </p>
+                </motion.div>
+
+                <motion.h1
+                  variants={{ animate: { transition: { duration: 0 } } }}
+                  className="mt-6 font-display text-[clamp(2.8rem,7vw,5.25rem)] leading-[1.04] tracking-[-0.02em] text-balance text-foreground"
+                >
+                  <TitleMask>Six areas, one practice.</TitleMask>
+                </motion.h1>
+
+                <motion.p
+                  variants={fadeUp}
+                  className="mt-6 max-w-[48ch] text-lg leading-relaxed text-pretty text-muted-foreground md:text-xl"
+                >
+                  Education, exchange, partnerships, consulting, applied AI, and
+                  social innovation—crafted to deliver lasting change across Asia.
+                </motion.p>
+
+                <motion.div
+                  variants={{ animate: { transition: { staggerChildren: 0.06 } } }}
+                  className="mt-8 flex flex-wrap items-center gap-3"
+                >
+                  {["Education", "Policy & Governance", "Applied AI", "Youth Development"].map(
+                    (tag) => (
+                      <motion.span
+                        key={tag}
+                        variants={tagIn}
+                        className="inline-flex items-center rounded-full border border-foreground/10 bg-background/80 px-3.5 py-1.5 text-xs uppercase tracking-[0.16em] text-foreground/70 shadow-sm backdrop-blur-sm transition-colors hover:border-amber-600/40 hover:text-foreground"
+                      >
+                        {tag}
+                      </motion.span>
+                    ),
+                  )}
+                </motion.div>
+              </motion.div>
+
+              <motion.div variants={frameIn} className="relative md:col-span-5 md:ml-2">
+                <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[1.25rem] bg-muted shadow-[0_80px_120px_-40px_rgba(15,15,10,0.45)] ring-1 ring-foreground/10">
+                  <Image
+                    src="/un-youth-assembly/delegation-1.jpg"
+                    alt="Siklab delegates at the United Nations Youth Assembly"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover object-center"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+                  />
+                  <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.18),transparent_70%)]" />
+                </div>
+                <motion.span
+                  aria-hidden
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 0.5, ease }}
+                  className="pointer-events-none absolute -bottom-2.5 -left-2.5 h-full w-full rounded-[1.25rem] border border-amber-600/30"
+                />
+                <motion.div
+                  variants={fadeUp}
+                  className="absolute -bottom-6 right-0 flex max-w-xs flex-col items-end gap-2 rounded-2xl border border-white/20 bg-background/90 px-4 py-3 text-right shadow-lg backdrop-blur-md sm:max-w-[16rem] md:-right-4"
+                >
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/60">
+                    United Nations Youth Assembly
+                  </p>
+                  <p className="text-xs leading-relaxed text-pretty text-muted-foreground">
+                    Delegates advancing youth-led solutions on the global stage.
+                  </p>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+       </MotionConfig>
 
       <section className="border-t border-foreground/10">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
@@ -535,12 +651,12 @@ export default function Areas() {
             variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
             className="mb-12 md:mb-16"
           >
-            <motion.h2
-              variants={fadeUp}
-              className="max-w-[18ch] font-display text-3xl leading-tight tracking-tight text-foreground md:text-4xl"
-            >
-              The fields, and what sits inside them.
-            </motion.h2>
+               <motion.h2
+                 variants={fadeUp}
+                 className="max-w-[18ch] font-display text-3xl leading-[1.08] tracking-[-0.02em] text-balance text-foreground md:text-4xl lg:text-5xl"
+               >
+                 The fields, and what sits inside them.
+               </motion.h2>
           </motion.div>
 
           <AreaIndex />
