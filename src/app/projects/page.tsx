@@ -468,7 +468,7 @@ function EnactusShowcase() {
           </div>
 
           {/* Slide progress */}
-          <div className="absolute inset-x-0 bottom-0 z-20 h-[3px] bg-white/15">
+          <div className="absolute inset-x-0 top-0 z-20 h-[3px] bg-white/15">
             <motion.div
               key={currentSlide}
               className="h-full origin-left bg-[#EEAD2E]"
