@@ -31,7 +31,7 @@ const fadeIn = {
   animate: { opacity: 1, transition: { duration: 1, ease } },
 };
 
-const aiForAsiaSlides = Array.from({ length: 25 }, (_, i) => ({
+const aiForAsiaSlides = Array.from({ length: 10 }, (_, i) => ({
   src: `/AIFORASIASLIDESHOW/${i + 1}.jpg`,
   alt: `AI for Asia fellowship moment ${i + 1}`,
 }));
@@ -40,7 +40,7 @@ const SLIDE_DURATION = 4500;
 
 const aiForAsia = {
   id: "ai-for-asia",
-  number: "01",
+  number: "02",
   name: "AI for Asia",
   tagline: "Unlocking Asia's future with AI.",
   description:
@@ -58,7 +58,7 @@ const aiForAsia = {
 
 const enactus = {
   id: "enactus",
-  number: "02",
+  number: "01",
   name: "Enactus Philippines",
   tagline: "Entrepreneurial action for others.",
   description:
@@ -74,14 +74,8 @@ const enactus = {
   ],
 };
 
-const enactusSlides = [
-  "/ENACTUSSLIDESHOW/_DJV5609.jpg",
-  "/ENACTUSSLIDESHOW/_DJV5791.jpg",
-  "/ENACTUSSLIDESHOW/_DJV5820.jpg",
-  "/ENACTUSSLIDESHOW/Slidephoto1.jpeg",
-  "/ENACTUSSLIDESHOW/Slidephoto2.jpeg",
-].map((src, i) => ({
-  src,
+const enactusSlides = Array.from({ length: 10 }, (_, i) => ({
+  src: `/ENACTUSSLIDESHOW/${i + 1}.jpg`,
   alt: `Enactus Philippines photo journal, photo ${i + 1}`,
 }));
 
@@ -524,11 +518,11 @@ export default function Projects() {
 
       <div className="border-t border-foreground/10" />
 
-      <AiForAsiaShowcase />
+      <EnactusShowcase />
 
       <div className="border-t border-foreground/10" />
 
-      <EnactusShowcase />
+      <AiForAsiaShowcase />
     </>
   );
 }
