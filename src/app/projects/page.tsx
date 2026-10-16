@@ -75,7 +75,7 @@ const enactus = {
 };
 
 const enactusSlides = Array.from({ length: 10 }, (_, i) => ({
-  src: `/ENACTUSSLIDESHOW/${i + 1}.jpg`,
+  src: `/ENACTUSSLIDESHOW/${i + 1}.${i + 1 <= 8 ? "jpg" : "jpeg"}`,
   alt: `Enactus Philippines photo journal, photo ${i + 1}`,
 }));
 
