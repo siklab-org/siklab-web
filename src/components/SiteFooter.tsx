@@ -27,9 +27,9 @@ const socials = [
 export function SiteFooter() {
   return (
     <footer className="border-t-2 border-primary/15 bg-linear-to-b from-transparent to-blue-50/40 dark:to-blue-950/25 mt-24">
-      <div className="mx-auto max-w-7xl px-6 py-12 sm:py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 sm:gap-10">
-          <div className="col-span-2 lg:col-span-1">
+      <div className="mx-auto w-full max-w-[88rem] px-6 py-12 sm:px-8 sm:py-16 lg:px-12 2xl:px-16">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-10 lg:grid-cols-12">
+          <div className="col-span-2 lg:col-span-5">
             <Link href="/" className="inline-block mb-4">
               <Image
                 src="/siklab-logo.png"
@@ -39,11 +39,11 @@ export function SiteFooter() {
                 className="h-10 sm:h-12 w-auto"
               />
             </Link>
-            <p className="text-sm text-foreground/65 leading-relaxed max-w-xs">
+            <p className="text-sm text-foreground/65 leading-relaxed max-w-sm">
               An internationally recognized development and impact consulting firm rooted in Asia.
             </p>
           </div>
-          <div>
+          <div className="lg:col-span-3">
             <h3 className="text-xs uppercase tracking-widest text-foreground/50 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {nav.map((i) => (
@@ -58,7 +58,7 @@ export function SiteFooter() {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="col-span-2 flex flex-col gap-8 sm:col-span-1 lg:col-span-4">
             <div>
               <h3 className="text-xs uppercase tracking-widest text-foreground/50 mb-4">Contact</h3>
               <ul className="space-y-2">
@@ -91,8 +91,10 @@ export function SiteFooter() {
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-6 border-t border-foreground/10 text-xs text-foreground/50 text-center">
-          &copy; {new Date().getFullYear()} Siklab Pilipinas. All rights reserved.
+        <div className="mt-12 border-t border-foreground/10 pt-6">
+          <p className="text-xs text-foreground/50">
+            &copy; {new Date().getFullYear()} Siklab Pilipinas. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

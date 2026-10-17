@@ -62,7 +62,7 @@ function MaskReveal({
     <span className="inline-block will-change-transform">
       <motion.span
         initial={{ clipPath: "inset(0 0 100% 0)", y: 16 }}
-        animate={{ clipPath: "inset(0 0 0% 0)", y: 0 }}
+        animate={{ clipPath: "inset(-10% -4% -16% -4%)", y: 0 }}
         transition={{ duration: 0.7, delay: 0.15 + index * 0.09, ease: EASE_OUT }}
         className="inline-block"
       >
@@ -114,7 +114,7 @@ export function HeroSection() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative w-full overflow-hidden cursor-default"
-      style={{ height: "65vh", minHeight: "480px" }}
+      style={{ height: "clamp(520px, 68vh, 880px)" }}
     >
       <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
@@ -139,7 +139,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80" />
 
       {imageLoaded && (
-        <div className="relative z-10 mx-auto max-w-7xl px-6 h-full flex flex-col justify-center pt-8 md:pt-12 items-center text-center">
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-[88rem] flex-col items-start justify-center px-6 pt-8 text-left sm:px-8 md:pt-12 lg:px-12 2xl:px-16">
           <span
             aria-hidden
             className="animate-spark mb-5 inline-block h-2 w-2"
@@ -165,8 +165,8 @@ export function HeroSection() {
               )}
             </AnimatePresence>
 
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground max-w-4xl">
-              <span className="inline-flex items-baseline flex-wrap gap-x-[0.15em] justify-center">
+            <h1 className="font-display text-[clamp(2rem,6vw,5.5rem)] leading-[1.08] tracking-tight text-foreground max-w-4xl">
+              <span className="inline-flex items-baseline flex-wrap gap-x-[0.15em] justify-start">
                 <MaskReveal index={0}>Tomorrow&apos;s way of</MaskReveal>
                 <span className="basis-full h-0" aria-hidden />
                 <MaskReveal index={1}>doing things,</MaskReveal>
@@ -206,8 +206,8 @@ export function HeroSection() {
               </span>
             </h1>
 
-            <div className="mx-auto mt-4 h-px w-[70%]">
-              <span className="animate-breathe-line block h-full w-full rounded-full bg-gradient-to-r from-transparent via-amber-400/50 to-transparent will-change-transform" />
+            <div className="mt-6 h-px w-40 md:w-64">
+              <span className="animate-breathe-line block h-full w-full rounded-full bg-gradient-to-r from-amber-400/50 to-transparent will-change-transform" />
             </div>
           </div>
         </div>

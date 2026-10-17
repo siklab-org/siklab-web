@@ -17,6 +17,11 @@ const fadeIn = {
   animate: { opacity: 1, transition: { duration: 0.8, ease } },
 };
 
+// One shared measure so every band lines up on the same left edge and grows
+// with the display instead of sitting in a narrow centered column.
+const shell =
+  "mx-auto w-full max-w-[88rem] px-6 sm:px-8 lg:px-12 2xl:px-16";
+
 const partnerLogos: Record<string, string> = {
   "United Nations": "united-nations.png",
   USAID: "usaid.png",
@@ -50,15 +55,19 @@ export default function Home() {
           whileInView="animate"
           viewport={{ once: true, margin: "-60px" }}
           variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
-          className="mx-auto max-w-7xl px-6 py-16 md:py-20"
         >
-          <motion.p
-            variants={fadeUp}
-            className="text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/50 mb-10 text-center"
+          <div className={`${shell} pt-16 md:pt-24 2xl:pt-28`}>
+            <motion.div variants={fadeUp} className="flex items-center gap-5">
+              <p className="whitespace-nowrap text-xs uppercase tracking-[0.3em] text-foreground/50 md:text-sm">
+                In partnership with
+              </p>
+              <span className="h-px flex-1 bg-border/70" />
+            </motion.div>
+          </div>
+          <motion.div
+            variants={fadeIn}
+            className="pt-10 pb-16 md:pt-14 md:pb-24 2xl:pb-28"
           >
-            In partnership with
-          </motion.p>
-          <motion.div variants={fadeIn}>
             <PartnerLogoMarquee
               rows={[partnerEntries.slice(0, half), partnerEntries.slice(half)]}
             />
@@ -69,8 +78,8 @@ export default function Home() {
       <section className="relative w-full bg-muted/30 border-t border-border/40 overflow-hidden">
         <div
           aria-hidden
-          className="absolute inset-x-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          style={{ width: "min(520px, 80vw)", height: "240px" }}
+          className="absolute left-[-8%] top-1/2 h-[240px] -translate-y-1/2 pointer-events-none lg:left-[4%] 2xl:left-[10%]"
+          style={{ width: "min(520px, 80vw)" }}
         >
           <span
             className="animate-breathe block h-full w-full rounded-full will-change-transform"
@@ -87,45 +96,49 @@ export default function Home() {
           whileInView="animate"
           viewport={{ once: true, margin: "-60px" }}
           variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
-          className="relative mx-auto max-w-7xl px-6 pt-12 pb-4 text-center md:pt-16 md:pb-6"
+          className={`relative ${shell} py-20 md:py-28 2xl:py-32`}
         >
-          <motion.p
-            variants={fadeUp}
-            className="text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/50 mb-3"
-          >
-            Let&apos;s build together
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            className="font-display text-2xl md:text-4xl leading-[1.15] tracking-tight text-foreground mb-5"
-          >
-            Get in touch with us
-          </motion.h2>
-          <motion.div
-            variants={fadeIn}
-            aria-hidden
-            className="mx-auto -mt-1 mb-5 h-px w-[60%]"
-          >
-            <span className="animate-breathe-line block h-full w-full rounded-full bg-gradient-to-r from-transparent via-amber-400/50 to-transparent will-change-transform" />
-          </motion.div>
-          <motion.p
-            variants={fadeUp}
-            className="text-foreground/60 max-w-lg mx-auto mb-7 text-sm md:text-base leading-relaxed"
-          >
-            Whether you&apos;re an organization seeking partnership or a young
-            leader ready to grow, we&apos;d love to hear from you.
-          </motion.p>
-          <motion.div variants={fadeUp}>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-primary/25 px-7 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground active:scale-[0.97] transition-[background-color,color,border-color,transform] duration-200 ease-out"
-            >
-              Contact us
-              <span className="transition-transform duration-200 ease-out group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </Link>
-          </motion.div>
+          <div className="grid items-start gap-10 md:gap-14 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-7">
+              <motion.p
+                variants={fadeUp}
+                className="mb-4 text-xs uppercase tracking-[0.3em] text-foreground/50 md:text-sm"
+              >
+                Let&apos;s build together
+              </motion.p>
+              <motion.h2
+                variants={fadeUp}
+                className="font-display text-[clamp(1.875rem,4vw,3.5rem)] leading-[1.1] tracking-tight text-foreground"
+              >
+                Get in touch with us
+              </motion.h2>
+              <motion.div
+                variants={fadeIn}
+                aria-hidden
+                className="mt-7 h-px w-32 md:w-48"
+              >
+                <span className="animate-breathe-line block h-full w-full rounded-full bg-gradient-to-r from-amber-400/60 to-transparent will-change-transform" />
+              </motion.div>
+            </div>
+
+            <motion.div variants={fadeUp} className="lg:col-span-5 lg:pt-1">
+              <p className="max-w-md text-sm leading-relaxed text-foreground/60 sm:text-base lg:text-lg">
+                Whether you&apos;re an organization seeking partnership or a
+                young leader ready to grow, we&apos;d love to hear from you.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2.5 rounded-full border border-primary/25 px-7 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground active:scale-[0.97] transition-[background-color,color,border-color,transform] duration-200 ease-out"
+                >
+                  Contact us
+                  <span className="transition-transform duration-200 ease-out group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
     </>
