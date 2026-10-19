@@ -43,36 +43,25 @@ export default function Home() {
     name,
     file,
   }));
-  const half = Math.ceil(partnerEntries.length / 2);
 
   return (
     <>
       <HeroSection />
 
       <section className="relative w-full bg-white border-t border-border/40 overflow-hidden">
-        <motion.div
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={{ animate: { transition: { staggerChildren: 0.12 } } }}
-        >
+        <div>
           <div className={`${shell} pt-16 md:pt-24 2xl:pt-28`}>
-            <motion.div variants={fadeUp} className="flex items-center gap-5">
+            <div className="flex items-center gap-5">
               <p className="whitespace-nowrap text-xs uppercase tracking-[0.3em] text-foreground/50 md:text-sm">
                 In partnership with
               </p>
               <span className="h-px flex-1 bg-border/70" />
-            </motion.div>
+            </div>
           </div>
-          <motion.div
-            variants={fadeIn}
-            className="pt-10 pb-16 md:pt-14 md:pb-24 2xl:pb-28"
-          >
-            <PartnerLogoMarquee
-              rows={[partnerEntries.slice(0, half), partnerEntries.slice(half)]}
-            />
-          </motion.div>
-        </motion.div>
+          <div className="pt-10 pb-16 md:pt-14 md:pb-24 2xl:pb-28">
+            <PartnerLogoMarquee logos={partnerEntries} />
+          </div>
+        </div>
       </section>
 
       <section className="relative w-full bg-muted/30 border-t border-border/40 overflow-hidden">
